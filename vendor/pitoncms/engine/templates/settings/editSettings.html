@@ -1,0 +1,44 @@
+{% extends '@admin/_adminBase.html' %}
+{% import '@admin/settings/_editSettingInputMacro.html' as settingMacro %}
+
+{% block htmlTitle %}
+Edit {{ page.category|capitalize }} Settings
+{% endblock htmlTitle %}
+
+{% block openForm %}
+<form action="{{ pathFor('adminSettingSave') }}" method="post" accept-charset="utf-8">
+  <input type="hidden" name="{{ site.environment.csrfTokenName }}" value="{{ site.environment.csrfTokenValue }}">
+  <input type="hidden" name="category" value="{{ page.category }}">
+{% endblock openForm %}
+
+{% block contentHeader %}
+  <div class="content-header-inner">
+    <!-- Bread Crumbs  -->
+    <div class="breadcrumb">
+      <a href="{{ pathFor('adminSetting') }}">
+        Settings <i class="fas fa-chevron-right"></i>
+      </a>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="section-title">{{ page.category|capitalize }} Settings</h1>
+
+    <!-- Control Buttons -->
+    <div class="btn-group">
+      <button type="reset" class="btn btn-cancel" data-form-button="cancel" disabled>Discard</button>
+      <button class="btn btn-save" type="submit" name="button" value="save" data-form-button="save" disabled>Save</button>
+    </div><!-- /.btn-group -->
+  </div><!-- /.content-header-inner  -->
+{% endblock contentHeader %}
+
+{% block content %}
+  <div class="settings-block">
+    {% for setting in page.settings %}
+    {{ settingMacro.settingInput(setting) }}
+    {% endfor %}
+  </div><!-- /.settings-block -->
+{% endblock content %}
+
+{% block closeForm %}
+</form>
+{% endblock closeForm %}

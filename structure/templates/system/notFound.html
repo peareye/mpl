@@ -1,0 +1,20 @@
+{% extends 'pages/_base_layout.html' %}
+
+{#
+    Page Not Found Template
+
+    Any URL request that cannot be resolved will attempt to load this template and return it with a status 404.
+    Feel free to modify or theme this file in anyway, as long as the full filename remains the same.
+    If this template is missing or cannot be loaded, a default Page Not Found template will be returned.
+#}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <h1>Page Not Found</h1>
+            <p style="font-size: 1.5rem;">
+                <i class="far fa-compass"></i> Lost? Try going to the <a href="/">home</a> page to find what you are looking for.
+            </p>
+        </div>
+    </section>
+{% endblock %}

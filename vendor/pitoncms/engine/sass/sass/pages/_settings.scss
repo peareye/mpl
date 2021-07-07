@@ -1,0 +1,109 @@
+.settings-block {
+ @include margin(1rem);
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 1rem;
+ .form-block {
+  @include margin(0);
+ }
+ .form-group{
+ @include padding(1rem);
+  background: $bg-white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-1;
+ }
+ }
+
+/* Users */
+.user-list-item-header {
+ @include padding(.5em 1em .25em);
+ color: $text-secondary;
+ border-bottom: solid 1px $border;
+}
+.user-list-item {
+ background: $bg-white;
+ @include padding(.5em);
+ border-bottom: solid 1px $border;
+ &:hover {
+  background: $bg-grey; 
+ }
+}
+
+.user-list-item,
+.user-list-item-header {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr) repeat(2, .5fr);
+ gap: 1em;
+ justify-content: center;
+ align-items: center;
+}
+
+.add-user {
+ justify-self: flex-start;
+ align-self: flex-start;
+}
+
+// user detail page
+.user-block-wrapper{
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+ gap: 1em;
+ align-items: center;
+ input, label {
+  @include margin(0);
+ }
+
+ .user-block-item{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  align-items: center;
+
+ }
+}
+
+.user-block-name {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1em;
+}
+
+/* Collection Groups */
+.list-item-collections__header,
+.list-item-collections {
+ @include padding(.5em null .25em);
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: space-between;
+ align-items: center;
+ border-bottom: solid 1px $border;
+
+ &-title {
+  flex: 1;
+
+ }
+
+ &-template {
+  flex: 1;
+ }
+}
+
+.list-item-collections__header {
+ color: $text-secondary;
+ @include padding(null null null .5em);
+}
+
+.list-item-collections {
+ background: $bg-white;
+ @include padding(.5em);
+
+ &:hover {
+  background: lighten($bg-grey, 4%);
+ }
+}
+
+.sitemap-link {
+ @include margin(1rem null);
+ @include padding(null null 1rem null);
+ border-bottom: solid 1px $border;
+}

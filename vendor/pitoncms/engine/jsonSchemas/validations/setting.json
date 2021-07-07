@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "Validations for `data_store` table.",
+    "type": "object",
+    "properties": {
+        "category": {
+            "description": "Setting category group key. Can be one of site, contact, social, page, and element",
+            "type": "string",
+            "enum": ["site","contact","social","page","element"]
+        },
+        "page_id": {
+            "description": "Table foreign key page reference ID",
+            "type": "integer"
+        },
+        "element_id": {
+            "description": "Table foreign key page_element reference ID",
+            "type": "integer"
+        },
+        "setting_key": {
+            "description": "Template key using single camelCase word with only a-z and A-Z characters and underscores, up to 60 characters long.",
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]{1,60}$"
+        },
+        "setting_value": {
+            "description": "Setting value, optional, max 4000 characters.",
+            "type": "string",
+            "maxLength": 4000
+        }
+    },
+    "required": ["category","setting_key"]
+}

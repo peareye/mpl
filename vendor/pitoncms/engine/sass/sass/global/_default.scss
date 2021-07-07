@@ -1,0 +1,242 @@
+/* Default Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: $bg-light;
+}
+
+body {
+  /* See typography.scss for font family */
+  line-height: 1.6;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* Html Element Styles */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $clr-accent;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: $text-secondary;
+
+  &:hover,
+  &focus {
+    color: lighten($text-secondary, 30%);
+    outline: none;
+  }
+
+  &:active {
+    outline: dashed 5px $text-accent-hover;
+  }
+}
+
+::selection {
+  background-color: $clr-accent;
+  color: $text-light;
+}
+
+/* Utility Classes */
+.mt-1rem {
+  margin-top: 1rem;
+}
+
+.span {
+  grid-column: 1 / -1;
+}
+
+.fas:hover {
+  cursor: pointer;
+}
+
+/* Badges */
+.badge {
+  @include padding(.5em);
+  width: 100%;
+  height: 50%;
+  border-radius: $border-radius;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:empty {
+    display: none;
+  }
+
+  &-notify {
+    background: $clr-notify;
+    color: $text-light;
+  }
+
+  &-success {
+    background: $clr-success;
+    color: $text-light;
+  }
+
+  &-danger {
+    background: $clr-danger;
+    color: $text-light;
+  }
+}
+
+/* Text Styles */
+.published {
+  color: $clr-success;
+  text-transform: capitalize;
+
+}
+
+.draft {
+  color: $clr-draft;
+  text-transform: capitalize;
+}
+
+.pending {
+  color: $clr-warning;
+  text-transform: capitalize;
+
+}
+
+.small-text {
+  font-size: .875rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.strong-text {
+  font-weight: bold;
+}
+
+.text-required {
+  color: $clr-danger;
+}
+
+.text-danger {
+  color: $clr-danger !important;
+  font-weight: bold;
+
+}
+
+.text-info {
+  color: $clr-notify;
+  font-weight: bold;
+}
+
+/* Display */
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none !important;
+}
+
+
+
+.collapsed {
+  display: none;
+  animation: collapse 125ms ease forwards;
+}
+
+@keyframes collapse {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Spinner Class */
+.spinner {
+  background: rgba($bg-dark, .5) !important;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1001;
+
+  &::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f2f1';
+    color: $text-light;
+    font-size: 3rem;
+
+    animation: rotate 1.5s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// .ck-editor__editable h1 {
+//   all: initial;
+// }
+.ck-content {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $text-dark;
+
+  }
+
+  ul,
+  ol {
+
+    @include margin(1rem null null 2rem);
+
+
+  }
+
+  p {
+    @include margin(1rem null null null);
+  }
+}

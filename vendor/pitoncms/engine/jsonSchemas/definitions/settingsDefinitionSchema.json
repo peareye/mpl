@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "Settings Definition for key-value pairs",
+    "$id": "jsonSchemas/definitions/settingsDefinitionSchema.json",
+    "definition": {
+        "description": "An array of form inputs for settings.",
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "$ref": "../validations/setting.json#/properties/category"
+                },
+                "label": {
+                    "description": "Input label text",
+                    "type": "string"
+                },
+                "key": {
+                    "$ref": "../validations/setting.json#/properties/setting_key"
+                },
+                "value": {
+                    "$ref": "../validations/setting.json#/properties/setting_value"
+                },
+                "inputType": {
+                    "description": "HTML input type: text, select, textarea, color, date, email, number, tel, url.",
+                    "type": "string",
+                    "enum": ["text","select","textarea","color","date","email","number","tel","url"]
+                },
+                "placeholder": {
+                    "description": "Input placeholder text, optional.",
+                    "type": "string"
+                },
+                "help": {
+                    "description": "Form input help text, optional."
+                },
+                "options": {
+                    "description": "Only for select lists. List of values (saved) and names (readable).",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "description": "Value to save",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Value to show in select list.",
+                                "type": "string"
+                            }
+                        },
+                        "required": ["value","name"]
+                    }
+                }
+            },
+            "required": ["label","key","category"]
+        }
+    }
+}

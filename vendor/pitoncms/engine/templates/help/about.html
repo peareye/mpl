@@ -1,0 +1,20 @@
+{% extends '@admin/help/_helpBase.html' %}
+
+{% block content %}
+    <div class="help-content">
+        <h1>About PitonCMS.</h1>
+        <p>
+            You have PitonCMS Engine version <code>{{ site.environment.engine }}</code>,
+            build <code><a href="https://github.com/PitonCMS/Engine/commit/{{ site.environment.commit }}" target="_blank">{{ site.environment.commit|slice(0, 7) }}</a></code> installed.
+
+            You can read more about the PitonCMS project on <a href="https://github.com/PitonCMS" target="_blank">GitHub.</a></p>
+
+        {% if page.releases %}
+        <p>
+            {% for release in page.releases %}
+            {{ release }}
+            {% endfor %}
+        </p>
+        {% endif %}
+    </div>
+{% endblock content %}

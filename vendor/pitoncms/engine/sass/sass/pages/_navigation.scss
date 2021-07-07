@@ -1,0 +1,140 @@
+/* Navigation Structure */
+.nav-wrapper {
+ @include margin(1rem null null null);
+ font-size: 1em;
+ display: flex;
+
+ &__sidebar {
+  @include padding(null 1em null null);
+  flex: .75;
+  display: flex;
+  flex-flow: column nowrap;
+
+  .form-group-inline {
+   grid-column: 1 / -1;
+   display: flex;
+
+   align-items: center;
+  }
+.form-check{
+ @include padding(0);
+}
+  .checkbox-block {
+   grid-template-columns: 1fr;
+   gap: 0;
+
+   &__title {
+    @include margin(1rem null .5rem);
+    font-size: 1.4rem;
+    @include padding(0);
+    color: $text-secondary;
+    font-weight: 300;
+    line-height: 1;
+   }
+  }
+
+ }
+
+ &__form-group {
+  @include margin(0 null .5rem null);
+
+  label {
+   font-weight: 600;
+   background: $bg-white;
+   display: none;
+  }
+  input{
+   background: $bg-white;
+  }
+ }
+
+ &__main {
+  align-content: flex-start;
+  flex: 3;
+
+  >* {
+   border: solid 1px $border;
+   @include margin(null null .5rem null);
+  }
+ }
+
+ .nav-item {
+  width: 100%;
+  grid-column: 1 / -1;
+  line-height: $nav-height;
+  border: solid 1px darken($border, 10%);
+
+  &__header {
+   background: $bg-grey;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 100%;
+   height: $nav-height;
+   line-height: $nav-height;
+  }
+
+  &__content {
+   @include padding(null 1em);
+   color: $clr-dark-grey;
+   font-weight: 300;
+
+  }
+
+  &__title {
+   @include padding(null 1em null .75em);
+   flex: 1;
+   color: $text-secondary;
+   font-size: 1.3rem;
+   height: 100%;
+   display: flex;
+   align-items: center;
+
+   &:hover {
+    cursor: move;
+   }
+  }
+
+  &__type {
+   @include padding(null 1rem);
+  }
+
+  &__toggle {
+   font-size: .875rem;
+   @include padding(1rem 1em 1em 1em);
+   border-left: solid 1px darken($border, 10%);
+
+   &:hover {
+    cursor: pointer;
+    color: $text-accent-hover;
+   }
+  }
+
+  label {
+   font-weight: 300;
+   font-style: italic;
+  }
+ }
+
+ .sub-nav-item {
+  grid-column: 2 / -1;
+ }
+
+ .btn-group-navigation {
+  @include padding(0);
+  @include margin(null null 1rem null);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-column: -2 / -1;
+  gap: 1em;
+  align-items: center;
+ }
+
+ .btn-group-nav-sidebar {
+  @include margin(1rem null);
+     display: flex;
+     width: 100%;
+    }
+  
+
+}

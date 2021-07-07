@@ -1,0 +1,49 @@
+/* CARDS */
+.content-cards {
+ @include margin(1em);
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+ gap: 1em;
+
+ .content-card {
+  @include padding(1em);
+  background: $bg-white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-1;
+
+  &:hover {
+   background: $bg-grey;
+  }
+
+  &__header {
+   display: grid;
+   grid-template-columns: 20px 1fr;
+   gap: .25em .5em;
+   align-items: center;
+  }
+
+  &__body {
+   display: grid;
+   grid-template-columns: 20px 1fr;
+   gap: .25em .5em;
+  }
+
+  &__title {
+   @include margin(0);
+   font-size: 1.4em;
+  }
+
+  p {
+   grid-column: 2 / -1;
+   font-size: .75rem;
+   color: rgba($text-dark, .75);
+  }
+
+  .card-icon {
+   @include padding(.25em null null null);
+   color: rgba($text-dark, .35);
+   align-self: flex-start;
+
+  }
+ }
+}

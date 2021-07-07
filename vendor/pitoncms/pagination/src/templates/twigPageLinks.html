@@ -1,0 +1,37 @@
+{#
+ * PitonCMS (https://github.com/PitonCMS)
+ *
+ * @link      https://github.com/PitonCMS/Piton
+ * @copyright Copyright 2015 Wolfgang Moritz
+ * @license   https://github.com/PitonCMS/Piton/blob/master/LICENSE (MIT License)
+ #}
+
+  <div class="{{ pagination.paginationWrapperClass }}">
+    {% for p in pagination.links %}
+      {% if loop.first %}
+        {# First pagination position #}
+        <div class="{{ pagination.linkBlockClass }} {% if pagination.currentPageLinkNumber == 1 %}disabled{% endif %}">
+          <a href="{{ p.href }}" class="{{ pagination.anchorClass }}" aria-label="Previous" title="Previous">{{ pagination.previousText }}</a>
+        </div>
+      {% endif %}
+
+      {# Print ellipsis as gap filler #}
+      {% if p.pageNumber == 'ellipsis' %}
+        <div class="{{ pagination.linkBlockClass }}">{{ pagination.ellipsisText }}</div>
+      {% endif %}
+
+      {# For all other working links #}
+      {% if not loop.first and not loop.last and p.pageNumber != 'ellipsis' %}
+      <div class="{{ pagination.linkBlockClass }} {% if pagination.currentPageLinkNumber == p.pageNumber %}active{% endif %}">
+        <a href="{{ p.href }}" class="{{ pagination.anchorClass }}">{{ p.pageNumber }}</a>
+      </div>
+      {% endif %}
+
+      {# Last pagination position #}
+      {% if loop.last %}
+      <div class="{{ pagination.linkBlockClass }} {% if pagination.currentPageLinkNumber == pagination.numberOfPageLinks %}disabled{% endif %}">
+        <a href="{{ p.href }}" class="{{ pagination.anchorClass }}" aria-label="Next" title="Next">{{ pagination.nextText }}</a>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>

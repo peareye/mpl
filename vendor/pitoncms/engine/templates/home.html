@@ -1,0 +1,15 @@
+{% extends '@admin/_adminBase.html' %}
+
+{% block contentHeader %}
+<div class="content-header-inner">
+ <div class="breadcrumb"></div>
+ <h1 class="section-title">Dashboard</h1>
+ <div class="btn-group"></div>
+</div>
+{% endblock contentHeader %}
+
+{% block content %}
+
+<p class="lead">Current project: <code>{{ site.environment.projectDir }}</code></p>
+
+{% endblock content %}

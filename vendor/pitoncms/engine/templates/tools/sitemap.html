@@ -1,0 +1,42 @@
+{% extends '@admin/_adminBase.html' %}
+
+{% block htmlTitle 'Sitemap' %}
+
+{% block contentHeader %}
+<form action="{{ pathFor('adminSitemapUpdate') }}" method="post" accept-charset="utf-8">
+  <input type="hidden" name="{{ site.environment.csrfTokenName }}" value="{{ site.environment.csrfTokenValue }}">
+ <div class="content-header-inner">
+  <div class="breadcrumb">
+    <a href="{{ pathFor('adminSetting') }}">
+        Settings <i class="fas fa-chevron-right"></i>
+      </a>  </div>
+  <h1 class="section-title">Sitemap</h1>
+  <div class="btn-group">
+   <!-- Control Buttons -->
+   <button class="btn btn-save " type="submit">Update Sitemap</button>
+  </div>
+ </div>
+
+ {% endblock contentHeader %}
+
+ {% block content %}
+ <div class="content-block-sitemap">
+  <div class="sitemap-wrapper">
+   <p>Search engines might use your sitemap to better understand what content to index. Click update after posting new content.</p>
+
+   <div class="sitemap">
+    {% if page.sitemapXML %}
+    <div class="sitemap-link">
+     <a href="/sitemap.xml" target="_blank"><i class="fas fa-external-link-alt"></i> Link to sitemap</a> | Last updated {{ page.lasteUpdateDate|date }}
+    </div>
+
+    <pre>{{ page.sitemapXML|escape }}</pre>
+    {% else %}
+    No Sitemap Found - Click Update Sitemap
+    {% endif %}
+   </div>
+  </div>
+ </div>
+
+</form>
+{% endblock content %}

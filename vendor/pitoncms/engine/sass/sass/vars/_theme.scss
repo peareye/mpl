@@ -1,0 +1,80 @@
+// color theme
+$clr-dark: #3b3b3b;
+$clr-light: #ffffff;
+
+$clr-light-grey: #f3f5f7;
+$clr-medium-grey: #dee3e7;
+$clr-dark-grey: #5e6369;
+
+$clr-blue: #3782c3;
+$clr-blue-light: rgb(212, 239, 252);
+$clr-dark-blue: #212f78;
+
+$clr-red: #df3b30;
+$clr-green: #008000;
+$clr-gold: #ecce22;
+
+$clr-dark-orange: #eb7119;
+$clr-light-orange: #ffc46b;
+
+// Navigation Variables
+$breakpoint: 768px;
+$nav-height: 50px;
+$nav-width: 175px;
+
+$border-radius: .25rem;
+$container-max: 1200px;
+$box-shadow: 0 2px 2px rgba($clr-dark, .5);
+$box-shadow-1: 0 0 0 1px rgba(63, 63, 68, .05),
+0 1px 3px 0 rgba($clr-dark, .15);
+$box-shadow-inset: inset 0 0 0 1px rgba(63, 63, 68, .05),
+inset 0 1px 3px 0 rgba($clr-dark, .15);
+
+// Background Colors
+$bg-dark: $clr-dark;
+$bg-light: $clr-light-grey;
+$bg-white: $clr-light;
+$bg-grey: $clr-medium-grey;
+$bg-accent: $clr-blue;
+$bg-accent-1: $clr-blue-light;
+
+// Default color Styles
+$text-light: $clr-light;
+$text-dark: $clr-dark;
+$text-grey: $clr-dark-grey;
+$text-accent: $clr-dark-orange;
+$text-accent-hover: lighten($text-accent, 10%);
+$text-secondary: $clr-dark-blue;
+
+$clr-accent: $clr-dark-orange;
+$clr-success: $clr-green;
+$clr-notify: $clr-dark-orange;
+$clr-danger: $clr-red;
+$clr-warning: $clr-gold;
+$clr-draft: $clr-dark-grey;
+
+$border: $clr-medium-grey;
+
+$btn-blue: $clr-blue;
+$btn-blue-hover: darken($btn-blue, 10%);
+$btn-blue-disabled: lighten($btn-blue, 10%);
+
+$btn-red: $clr-red;
+$btn-red-hover: darken($btn-red, 10%);
+$btn-red-disabled: lighten($btn-red, 10%);
+
+$btn-publish: $clr-green;
+$btn-publish-hover: darken($btn-publish, 10%);
+$btn-publish-disabled: lighten($btn-publish, 10%);
+
+$btn-cancel: $clr-notify;
+$btn-cancel-hover: darken($btn-cancel, 10%);
+$btn-cancel-disabled: lighten($btn-cancel, 10%);
+
+$btn-apply: $clr-dark-grey;
+$btn-apply-hover: darken($btn-apply, 10%);
+$btn-apply-disabled: lighten($btn-apply, 10%);
+
+$btn-archive: $clr-warning;
+$btn-archive-hover: darken($btn-archive, 10%);
+$btn-archive-disabled: lighten($btn-archive, 10%)

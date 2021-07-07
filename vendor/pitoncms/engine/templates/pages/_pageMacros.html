@@ -1,0 +1,158 @@
+{# Page and Collection Macros #}
+
+{#
+  Edit Element Form
+
+  Returns one element
+  @param object element  Element object
+#}
+
+{% macro elementForm(element) %}
+{% import '@admin/settings/_editSettingInputMacro.html' as settingMacro %}
+{% set arrayKey = element.id ?? uniqueKey() %}
+
+<div draggable="true" class="toggle-block" id="page-element-{{ arrayKey }}" data-element="parent">
+  <input type="hidden" name="element[{{ arrayKey }}][element_id]" value="{{ element.id }}">
+  <input type="hidden" name="element[{{ arrayKey }}][block_key]" value="{{ element.block_key }}">
+  <input type="hidden" name="element[{{ arrayKey }}][element_template]" value="{{ element.template }}">
+
+  <!-- Element Title -->
+  {#
+    Element Title Logic. Set display title to:
+    1) If saved (has element.id) and has a title, display the title
+    2) If saved (had element.id) and has NO title, display short excerpt of text
+    3) If new, then display "New Element"
+  #}
+  <div class="toggle-block__header toggle-block__header-secondary" data-drag-handle="true">
+   <h4 class="toggle-block__title secondary-title">{% if element.id %}{{ element.title|default(element.excerpt) }} {% else %} New Element <span class="small-text">&nbsp;&nbsp;unsaved</span>{% endif %}</h4>
+   <div class="small-text">{{ element.definition.elementName }}</div>
+   <i class="fas fa-chevron-down toggle-block__toggle" data-collapse-toggle="pageElement-{{ arrayKey }}"></i>
+  </div>
+
+  <!-- Element Content -->
+  <div class="form-block__elementWrapper {% if element.id %}collapsed{% endif %}" data-collapse-target="pageElement-{{ arrayKey }}">
+    <div class="form-block">
+      <label class="form-block__title">Element Title</label>
+      <input type="text"  name="element[{{ arrayKey }}][element_title]" value="{{ element.title }}" placeholder="Element Title" autocomplete="off">
+      <div class="small-text">The element title is not required. You can also use the Page Title as your main heading.</div>
+
+    </div>
+
+    {# Element custom settings #}
+    {% for setting in element.settings %}
+      {{ settingMacro.settingInput(setting, "element[" ~ arrayKey ~ "][setting]") }}
+    {% endfor %}
+
+    {# Element Content Editor Area. Bool false in Twig is empty, so need this hack for actual bool false #}
+    <div class="form-block {% if not element.definition.showContentTextarea %}d-none{% endif %}">
+      <label class="form-block__title">Element Content</label>
+      <textarea {% if element.definition.enableEditor %}data-cke="true"{% endif %} rows="5" name="element[{{ arrayKey }}][content]">{{ element.content|escape }}</textarea>
+    </div>
+
+    {# Embedded HTML #}
+    <div class="form-block {% if element.definition.enableInput != 'embedded' %}d-none{% endif %}" data-element-input-option="embedded">
+      <label class="form-block__title">Embedded HTML</label>
+      <textarea  rows="3" name="element[{{ arrayKey }}][embedded]">{{ element.embedded }}</textarea>
+      <small class="form-text text-muted">Enter embedded HTML.</small>
+    </div>
+
+    {# Media Select Option
+
+    Allows user to select a saved media file to link with this block element.
+    This media selector is displayed if the JSON block element definition file has "enableInput": "image" set.
+    Selecting an image sets the media table ID in the element_media_id input.
+    #}
+    <div class="form-block mediaInput {% if element.definition.enableInput != 'image' %}d-none{% endif %}"
+      data-element-input-option="image" data-media-select="true">
+
+      <img src="{{ getMediaPath(element.media.filename, 'large') }}"
+        class="{% if not element.media.filename %}d-none{% endif %}">
+
+      <input type="hidden"  name="element[{{ arrayKey }}][element_media_id]"
+        value="{{ element.media.id }}">
+      <label class="form-block__title">Media</label>
+
+      <div class="btn-group-pageEdit">
+        <button class="btn btn-delete" type="button" data-media-clear="true">Clear Media</button>
+        <button class="btn btn-save" type="button" data-media-modal="true">Select Media</button>
+      </div>
+
+    </div>
+
+    {# Collection Select #}
+    <div class="form-block {% if element.definition.enableInput != 'collection' %}d-none{% endif %}"
+      data-element-input-option="collection">
+      <label class="form-block__title">Collection</label>
+      <select class="minimal" name="element[{{ arrayKey }}][element_collection_id]"
+        {% if element.definition.enableInput == 'collection' %}required{% endif %}>
+        <option value="">- None -</option>
+        {% for c in getCollections() %}
+        <option value="{{ c.id }}" {% if c.id == element.collection_id %}selected{% endif %}>
+          {{ c.collection_title }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    {# Gallery Category Select #}
+    <div class="form-block {% if element.definition.enableInput != 'gallery' %}d-none{% endif %}"
+    data-element-input-option="gallery">
+      <label class="form-block__title">Gallery</label>
+      <select class="minimal" name="element[{{ arrayKey }}][element_gallery_id]" {% if element.definition.enableInput == 'gallery' %}required{% endif %}>
+        <option value="">- None -</option>
+        {% for id, cat in getMediaCategories() %}
+        <option value="{{ id }}" {% if id == element.gallery_id %}selected{% endif %}>{{ cat }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+  <button class="btn btn-delete " type="button"
+    data-delete-element-prompt="Are you sure you want to permanently delete this element?"
+    data-element-id="{{ element.id }}"
+    title="Delete element">Delete Element</button>
+
+  </div><!-- /.form-block__elementWrapper -->
+
+</div>
+{% endmacro elementForm %}
+
+
+{# Page List Item Row
+
+For the summary display of either pages or collection detail pages
+
+@param pageItem Page object
+#}
+{% macro pageListItem(pageItem) %}
+{% if pageItem.media_id %}
+{% set thumbnailSource = getMediaPath(pageItem.media.filename, "thumb") %}
+{% else %}
+{% set thumbnailSource = "/admin/img/noFeatureImg.png" %}
+{% endif %}
+
+<a class="list-item-page" href="{{ pathFor('adminPageEdit', {'id': pageItem.id}) }}">
+  <div class="list-item-page-item media"><img src="{{ thumbnailSource }}" alt=""></div>
+  <div class="list-item-page-item title" title="{{ pageItem.title }}">{{ pageItem.title }}</div>
+  <div class="list-item-page-item status {{ pageItem.getPublishedStatus() }}">
+    {{ pageItem.getPublishedStatus()|capitalize }}</div>
+  <div class="list-item-page-item template">{{ pageItem.template_name }}</div>
+  <div class="list-item-page-item collection">{{ pageItem.collection_title|default('Page') }} </div>
+</a>
+
+{% endmacro pageListItem %}
+
+{#
+  Page Status Filter
+
+  Returns select list of page status that trigger a page reload to filter results
+#}
+{% macro pageStatusFilter() %}
+<select class="form-control ml-auto jsPageStatusFilter">
+  {% set param = getQueryParam('pageStatus') %}
+  <option value="x">Status&hellip;</option>
+  <option value="all" {% if param == 'all' %}selected{% endif %}>All Pages</option>
+  <option value="draft" {% if param == 'draft' %}selected{% endif %}>Draft</option>
+  <option value="pending" {% if param == 'pending' %}selected{% endif %}>Pending</option>
+  <option value="published" {% if param == 'published' %}selected{% endif %}>Published</option>
+</select>
+{% endmacro %}

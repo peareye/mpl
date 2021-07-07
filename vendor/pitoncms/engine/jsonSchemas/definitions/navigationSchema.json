@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "Navigation validation schema",
+    "type": "object",
+    "properties": {
+        "navigators": {
+            "description": "An array of navigation definition objects",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Navigator display name in admin.",
+                        "type": "string"
+                    },
+                    "key": {
+                        "description": "Navigator key to use in templates. Single camelCase word with only a-z and A-Z characters",
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_]+$"
+                    },
+                    "description": {
+                        "description": "Text description to display in admin.",
+                        "type": "string"
+                    }
+                },
+                "required": ["name", "key"]
+            }
+        }
+    }
+}

@@ -1,0 +1,168 @@
+// Page Edit Toggle Blocks
+.toggle-block {
+ @include margin(1em null);
+ background: $bg-white;
+ display: grid;
+ grid-template-columns: 1fr;
+
+ &__header {
+  background: $bg-grey;
+  @include padding(.5em);
+  margin: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $nav-height;
+  position: sticky;
+  top: calc(#{$nav-height * 2});
+  z-index: 60;
+
+  &-secondary {
+   background: $bg-light;
+   border: solid 1px $border;
+  margin: 0 1rem !important;
+  }
+ }
+
+ &__content {
+  position: relative;
+  z-index: 59;
+
+ }
+
+
+ &__title {
+  @include padding(.5em 1em .5em null);
+  @include margin(0);
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+
+  &:hover {
+   cursor: default;
+  }
+ }
+
+ &__toggle {
+  font-size: .875rem;
+  @include padding(1rem .5em 1em 1em);
+  @include margin(null null null .75em);
+  border-left: solid 1px darken($border, 10%);
+
+  &:hover {
+   cursor: pointer;
+   color: $text-accent-hover;
+  }
+ }
+
+ &__inner {
+  @include padding(1rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  .form-group {
+   display: grid;
+   grid-template-columns: 1fr 4fr;
+  }
+ }
+
+ .drag-drop {
+  background: rgba($bg-accent-1, 40%);
+  @include margin(null 2rem);
+ }
+
+ .drag-hover {
+  background: rgba($bg-accent-1, 70%);
+ }
+}
+
+.secondary-title {
+ @include padding(null null null .75em);
+ @include margin(0);
+ flex: 1;
+ color: $text-secondary;
+ font-size: 1.2rem;
+ height: 100%;
+ display: flex;
+ align-items: center;
+
+ &:hover {
+  cursor: move;
+ }
+}
+
+.heading-toggle {
+ font-size: .875rem;
+ @include padding(1rem 1em 1em 1em);
+ border-left: solid 1px darken($border, 10%);
+
+ &:hover {
+  cursor: pointer;
+  color: $text-accent-hover;
+ }
+}
+
+.sub-toggle-block {
+ @include padding(null 2rem);
+}
+
+// Draggable blocks style
+
+.drag-drop {
+ position: relative;
+ border-radius: $border-radius;
+ @include margin(.5rem null);
+ height: 2rem;
+ background: $bg-accent-1;
+ border: dashed 3px $clr-dark-grey !important;
+ animation: dragDropFadeIn 250ms ease-in-out forwards;
+
+ &::before {
+  @include padding(0 .5em);
+  color: rgba($text-grey, 10%);
+  height: 100%;
+  font-size: 1.3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  content: 'Drop Here';
+  position: absolute;
+ }
+}
+
+.drag-hover {
+ height: 4rem;
+ background: darken($bg-accent-1, 5%);
+ border: dashed 3px $clr-dark !important;
+ animation: dragHoverFadeIn 250ms ease-in-out forwards;
+}
+
+// Animations
+@keyframes dragDropFadeIn {
+ 0% {
+  opacity: 0;
+  height: 0;
+ }
+
+ 100% {
+  opacity: 1;
+  height: 2rem;
+ }
+}
+
+@keyframes dragHoverFadeIn {
+ 0% {
+  opacity: 0;
+  height: 2rem;
+ }
+
+ 100% {
+  opacity: 1;
+  height: 4rem;
+ }
+}

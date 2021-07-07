@@ -1,0 +1,85 @@
+/* Sidebar Navigation */
+.sidebar {
+  .side-nav {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+
+
+    &__link {
+      @include padding(null .5em);
+      // @include margin(1px null);
+      // height: $nav-height;
+
+      display: grid;
+      grid-template-columns: 1fr 20px;
+      align-items: center;
+      column-gap: .25em;
+
+      &:hover {
+        background: darken($bg-grey, 5%);
+        color: $text-accent;
+        position: relative;
+        z-index: 100;
+      }
+
+      a {
+        height: $nav-height;
+        color: $text-dark;
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 250ms ease-in-out 125ms;
+
+        @media screen and (min-width: $breakpoint) {
+          opacity: 1;
+        }
+
+        &:hover {
+          color: $text-accent;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+
+      &:active {
+        outline: $text-accent-hover 3px solid;
+        position: relative;
+        z-index: 100;
+      }
+    }
+
+    &__icon {
+      @include margin(null .5em);
+      color: $text-grey;
+    }
+  }
+
+  .active {
+    background: $bg-grey !important;
+
+    &:hover {
+      background: inherit;
+    }
+
+    a {
+      color: $text-accent;
+
+      &:hover {
+        color: $text-accent;
+      }
+    }
+  }
+}
+
+.nav-toggle:checked~.sidebar {
+  display: block;
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked~.sidebar a {
+  opacity: 1;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% if page.meta_description %}
+    <meta name="description" content="{{ page.meta_description }}">
+    {% endif %}
+
+    <title>{{ page.title ~ ' | ' ~ site.settings.siteName|default('PitonCMS') }}</title>
+    <link rel="stylesheet" href="{{ baseUrl() }}/assets/{{ site.settings.theme|default('default') }}/css/main.css">
+    <link rel="stylesheet" href="{{ baseUrl() }}/assets/fancybox/fancybox/fancybox.css">
+
+</head>
+
+<body>
+    {{ include("includes/_navbar.html") }}
+    {% block hero %}
+    {% endblock hero %}
+
+    <div class="container">
+        <main>
+            {% block body %}
+            {% endblock %}
+        </main>
+            {% block sidebar %}
+            {% endblock %}
+    </div>
+
+    {{ include("includes/_footer.html") }}
+
+    <script nonce="{{ site.environment.cspNonce }}" src="{{ baseUrl() }}/admin/js/dist/front.js?v={{ site.environment.assetVersion }}"></script>
+    <script nonce="{{ site.environment.cspNonce }}" src="{{ baseUrl() }}/assets/{{ site.settings.theme|default('default') }}/js/custom.js"></script>
+    <script nonce="{{ site.environment.cspNonce }}" src="{{ baseUrl() }}/assets/fancybox/fancybox/fancybox.umd.js"></script>
+
+    {% if site.environment.production %}
+    {# Add analytics tracking JS code here so it only runs when in production. Be sure to include the nonce key in the script tag #}
+
+    {% endif %}
+</body>
+
+</html>

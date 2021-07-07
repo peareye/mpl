@@ -1,0 +1,20 @@
+.loginPage {
+  height: 100%;
+
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+
+  &__inner {
+    background: $bg-white;
+    @include padding(1rem 1rem 2rem);
+    width: min(60%, 600px);
+    border-radius: 15px;
+    box-shadow   : 0 0 15px rgba($clr-dark, .15);
+  }
+
+  &__form * {
+    margin-left: 0 !important;
+    margin-top : 1rem !important;
+  }
+}

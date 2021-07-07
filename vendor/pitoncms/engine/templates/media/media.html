@@ -1,0 +1,34 @@
+{% extends '@admin/_adminBase.html' %}
+
+{% block htmlTitle 'Media' %}
+
+{% block contentHeader %}
+<div class="content-header-inner">
+  <div class="breadcrumb"></div>
+  <h1 class="section-title">Media</h1>
+  <div class="btn-dropdown-block">
+    <div class="btn btn-dropdown" data-collapse-toggle="addMediaButton">
+      Manage Media <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="form-group-block collapsed" data-collapse-target="addMediaButton" data-collapse-auto="addMediaButton">
+      <div class="form-group">
+        <a href="#" data-media-upload="open" data-media-refresh="true">Add Media</a>
+      </div>
+      <div class="form-group">
+        <a href="{{ pathFor('adminMediaCategoryEdit') }}">Manage Categories</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock contentHeader %}
+
+{% block content %}
+
+{{ include("@admin/media/_mediaSearchControls.html") }}
+{{ include("@admin/media/_mediaCards.html") }}
+
+{% endblock content %}
+
+{% block foot %}
+{{ getJsFileSource('media') }}
+{% endblock foot %}

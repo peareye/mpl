@@ -1,0 +1,9 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "jsonSchemas/definitions/settingsSchema.json",
+    "$comment": "Settings schema",
+    "type": "object",
+    "properties": {
+        "settings": {"$ref": "settingsDefinitionSchema.json#/definition"}
+    }
+}

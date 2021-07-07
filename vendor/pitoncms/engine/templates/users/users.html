@@ -1,0 +1,59 @@
+{% extends '@admin/_adminBase.html' %}
+
+{% block htmlTitle 'Users' %}
+
+{% block contentHeader %}
+<div class="content-header-inner">
+  <div class="breadcrumb">
+    <a href="{{ pathFor('adminSetting') }}">
+      Settings <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+  <h1 class="section-title">Users</h1>
+
+  <div class="btn-dropdown-block">
+   <div class="btn btn-dropdown" data-collapse-toggle="addUserButton">
+     Add <i class="fas fa-chevron-down"></i>
+   </div>
+   <div class="form-group-block collapsed" data-collapse-target="addUserButton" data-collapse-auto="addUserButton">
+
+     <div class="form-group">
+      <a  href="{{ pathFor('adminUserEdit') }}">Add User</a>
+     </div>
+
+   </div>
+ </div>
+
+</div>
+{% endblock contentHeader %}
+
+{% block content %}
+
+{% if page.recommendRecoveryEmail %}
+{# TODO Put this notice in a dismissable alert #}
+<div class="one-admin-notice span">
+  <p>You only have one Administrator email registered. You should consider adding a second Administrator as login
+    recovery email
+    address.</p>
+</div>
+{% endif %}
+
+{# User Table Headings #}
+<div class="user-list-item-header">
+  <div class="user-list-item__name">Name</div>
+  <div class="user-list-item__email">Email</div>
+  <div class="user-list-item__status">Status</div>
+  <div class="user-list-item__role">Role</div>
+</div>
+
+{# Loop through saved users #}
+{% for user in page.users %}
+<a class="user-list-item" href="{{ pathFor('adminUserEdit', {'id': user.id}) }}">
+  <div class="user-list-item__title">{{ user.first_name }} {{ user.last_name }}</div>
+  <div class="user-list-item__email">{{ user.email }}</div>
+  <div class="user-list-item__status">{% if user.active == 'Y' %}Active{% endif %}</div>
+  <div class="user-list-item__role">{% if user.role == 'A' %}Admin{% endif %}</div>
+</a>
+{% endfor %}
+
+{% endblock content %}

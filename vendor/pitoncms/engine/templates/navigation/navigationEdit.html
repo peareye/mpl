@@ -1,0 +1,191 @@
+{% extends '@admin/_adminBase.html' %}
+{% import _self as navMacro %}
+
+{% block htmlTitle 'Edit Navigation' %}
+
+{% block openForm %}
+<form action="{{ pathFor('adminNavigationSave') }}" method="post" accept-charset="utf-8">
+  <input type="hidden" name="{{ site.environment.csrfTokenName }}" value="{{ site.environment.csrfTokenValue }}">
+  <input type="hidden" name="navigator" value="{{ page.navDefinition.key }}">
+{% endblock openForm %}
+
+{% block contentHeader %}
+<div class="content-header-inner">
+  <div class="breadcrumb">
+    <a href="{{ pathFor('adminNavigation') }}">
+      Navigation <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+  <h1 class="section-title">Nav Structure: {{ page.navDefinition.name }}</h1>
+
+  <div class="btn-group">
+    <button class="btn btn-cancel" type="reset" data-form-reset-href="{{ pathFor('adminNavigationEdit', {'navigator': page.navDefinition.key}) }}" data-form-button="cancel" disabled>Discard</button>
+    <button class="btn btn-save" type="submit"  data-form-button="save" disabled>Save</button>
+  </div>
+</div>
+{% endblock contentHeader %}
+
+{% block content %}
+  <div class="nav-wrapper">
+
+    {# SIDEBAR #}
+    <div class="nav-wrapper__sidebar">
+
+      {# Add Page #}
+      <div class="form-check-wrapper checkbox-block" data-add-nav="page">
+        <h3 class="checkbox-block__title span">Pages</h3>
+
+        {% for p in page.pages %}
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="page-{{ p.id }}" data-page-id="{{ p.id }}" data-page-title="{{ p.title }}">
+          <label class="form-check-label" for="page-{{ p.id }}">{{ p.title }}</label>
+        </div>
+        {% endfor %}
+
+        <div class="btn-group-nav-sidebar">
+          <button class="btn  btn-save" type="button" data-add-nav="pageButton">Add Page</button>
+        </div>
+      </div>
+
+      {# Add Collection #}
+      <div class="form-check-wrapper checkbox-block" data-add-nav="collection">
+        <h3 class="checkbox-block__title span">Collections</h3>
+
+        {% for c in page.collections %}
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="collection-{{ c.id }}" data-collection-id="{{ c.id }}" data-collection-title="{{ c.collection_title }}">
+          <label class="form-check-label" for="collection-{{ c.id }}">{{ c.collection_title }}</label>
+        </div>
+        {% endfor %}
+
+        <div class="btn-group-nav-sidebar">
+          <button class="btn  btn-save" type="button" data-add-nav="collectionButton">Add Collection</button>
+        </div>
+      </div>
+
+      {# Add Placeholder #}
+      <div data-add-nav="placeholder">
+        <h3 class="checkbox-block__title span">Placeholder</h3>
+        <div class="form-group nav-wrapper__form-group">
+          <label class="navTitle" for="placeholderName">Title</label>
+          <input type="text" placeholder="Nav title">
+        </div>
+        <div class="form-group nav-wrapper__form-group">
+          <label class="navTitle" for="placeholderUrl">URL</label>
+          <input type="text" placeholder="Nav URL or slug">
+        </div>
+
+        <div class="btn-group-nav-sidebar">
+          <button class="btn  btn-save" type="button" data-add-nav="placeholderButton">Add Placeholder</button>
+        </div>
+      </div>
+
+    </div>
+    {# END SIDEBAR #}
+
+    {# MAIN CONTENT #}
+    <div class="nav-wrapper__main" data-navigation-container="1" data-navigation="parent" data-nav-id="" data-draggable="children">
+
+       {# For each navigation item, get navigation element from macro at the bottom of this page #}
+      {% for nav in page.navigation %}
+      {{ navMacro.navElement(nav) }}
+      {% endfor %}
+
+    </div>
+    {# END MAIN CONTENT #}
+  </div>
+  {# END NAVIGATION EDIT WRAPPER #}
+
+{% endblock content %}
+
+{% block closeForm %}
+</form>
+
+{# Spare hidden nav to clone and add to navigation. Keep outside of form #}
+<div class="d-none" data-navigation="spare">
+  {{ navMacro.navElement() }}
+</div>
+{% endblock closeForm %}
+
+{% block foot %}
+{{ getJsFileSource('navigation') }}
+{% endblock foot %}
+
+
+
+{#
+  Navigation Element Macro
+
+  @param Object navigation
+#}
+{% macro navElement(navigation) %}
+{% import _self as navMacro %}
+
+<div class="toggle-block {% if navigation.parent_id %}sub-toggle-block{% endif %}" draggable="true" data-navigation="parent" data-nav-id="{{ navigation.id }}">
+  <input type="hidden" name="nav[{{ navigation.id }}][navId]" value="{{ navigation.id }}">
+  <input type="hidden" name="nav[{{ navigation.id }}][parentId]" value="{{ navigation.parent_id }}">
+  <input type="hidden" name="nav[{{ navigation.id }}][pageId]" value="{{ navigation.page_id }}">
+  <input type="hidden" name="nav[{{ navigation.id }}][collectionId]" value="{{ navigation.collection_id }}">
+
+  <div class="toggle-block__header">
+    <h3 class="toggle-block__title secondary-title" data-nav="title">{{ navigation.title }}</h3>
+    <div class="small-text toggle-block__type" data-nav="type">{% if navigation.page_id %}page{% elseif navigation.collection_id %}collection{% else %}placeholder{% endif %}</div>
+    <i class="fas fa-chevron-down toggle-block__toggle" data-collapse-toggle="navElement-{{ navigation.id }}"></i>
+  </div>
+
+  <div class="toggle-block__content {% if navigation.id %}collapsed{% endif %}" data-collapse-target="navElement-{{ navigation.id }}">
+
+    <div class="toggle-block__inner">
+      <div class="form-group">
+        <label>Navigation Label</label>
+        <input type="text" name="nav[{{ navigation.id }}][navTitle]" value="{{ navigation.nav_title }}" placeholder="Navigation label">
+      </div>
+
+      <div class="form-group {% if not navigation.url %}d-none{% endif %}">
+        <label>URL</label>
+        <input type="text" name="nav[{{ navigation.id }}][url]" value="{{ navigation.url }}" placeholder="Url or slug">
+      </div>
+
+      <div class="form-group {% if not navigation.page_title %}d-none{% endif %}">
+        <div>Page Title</div>
+        <p data-nav="pageTitle">{{ navigation.page_title }}</p>
+      </div>
+
+      <div class="form-group {% if not navigation.collection_id %}d-none{% endif %}">
+        <div>Collection</div>
+        <p data-nav="collectionTitle">{{ navigation.collection_title }}</p>
+      </div>
+
+      <div class="btn-group-navigation">
+        <button class="btn btn-delete" type="button"
+        data-delete-navigation-prompt="Are you sure you want to permanently delete this navigation link and all sub-navigation links?"
+        >Remove</button>
+      </div>
+
+    </div>
+  </div>
+
+  {# NAV SUB-ITEM #}
+  {% if navigation.childNav %}
+  {{ navMacro.navChildren(navigation.childNav) }}
+  {% endif %}
+  <div data-drop-zone="1"></div>
+</div>
+
+{% endmacro navElement %}
+
+
+{#
+  Navigation Children Macro
+
+  Loops through childNav array and prints navElement for each item
+  @param array childNav
+#}
+{% macro navChildren(childNav) %}
+{% import _self as navMacro %}
+
+  {% for child in childNav %}
+  {{ navMacro.navElement(child) }}
+  {% endfor %}
+
+{% endmacro navChildren %}

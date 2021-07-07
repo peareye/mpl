@@ -1,0 +1,54 @@
+.modal-alert {
+ position: fixed;
+ width: 80%;
+ z-index: 2000;
+ top: 0;
+ transform: scale(1, 0);
+ transform-origin: top;
+
+ animation: fadeIn 125ms ease-in-out forwards;
+}
+
+.alert {
+ @include margin(1rem auto);
+ border-radius: $border-radius;
+ box-shadow: $box-shadow-1;
+ background: $bg-white !important;
+
+ &-header {
+  @include padding(1rem);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: $bg-grey;
+ }
+
+ &-body {
+  @include padding(1rem);
+ }
+
+ &-danger {
+  color: $clr-danger !important;
+ }
+
+ &-success {
+  color: $clr-success !important;
+ }
+
+ &-info {
+  color: $clr-success;
+ }
+}
+
+@keyframes fadeIn {
+ 0% {
+  opacity: 0;
+  transform: scale(1, 0);
+
+ }
+
+ 100% {
+  opacity: 1;
+  transform: scale(1, 1);
+
+ }
+}

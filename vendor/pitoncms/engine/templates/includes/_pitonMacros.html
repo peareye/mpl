@@ -1,0 +1,120 @@
+{# Piton Admin HTML Macros #}
+
+{#
+    Alert Dialog
+
+    Display alert messages
+    @param string  severity One of primary, secondary, success, danger, warning, info
+    @param string  heading  Alert heading text
+    @param array   messages Message list
+#}
+{% macro alert(severity, heading, message) %}
+{% set severityClass = (severity) ? 'alert-' ~ severity : '' %}
+
+<div class="alert " role="alert" data-alert="container">
+    <div class="alert-header">
+        <h4 class="{{ severityClass }}" data-alert="heading">{{ heading }}</h4>
+        <i class="fas fa-times fa-2x" aria-hidden="true" data-dismiss="alert"></i>
+    </div>
+
+    <div class="alert-body" data-alert="content">
+        {% if message %}
+        {{ message|join('<br>') }}
+        {% endif %}
+    </div>
+</div>
+
+{% endmacro alert %}
+
+{#
+    Filter Search Control
+
+    Filter search input
+    @param string placeholder
+#}
+{% macro filterSearch(placeholder = "Seach ...") %}
+
+<div class="input-block" data-filter="search">
+	<div class="input-block__icon" data-filter-control="search">
+		<i class="fas fa-search"></i>
+	</div>
+	<div class="input-block__input">
+		<input type="search" name="search" class="input-block__search-input" placeholder="{{ placeholder }}"
+			autocomplete="false">
+	</div>
+</div>
+
+{% endmacro filterSearch %}
+
+{#
+    Filter Options Control
+
+	Create filter control for either radio or checkbox
+	First option is checked by default
+    @param string type  Either 'radio' or 'checkbox'
+	@param string label Display label on control
+	@paran string name  Input name attribute
+    @param array  options List of key: value pairs {"key1": "Name2", "key2": "Name2"}
+#}
+{% macro filterOptions(type, label, name, options) %}
+
+<div class="btn-dropdown-block" data-filter="options">
+	<div class="btn btn-dropdown" data-collapse-toggle="filter-{{ name }}">
+		{{ label }} <i class="fas fa-chevron-down"></i>
+	</div>
+	<div class="form-check-wrapper form-group-block collapsed" data-collapse-target="filter-{{ name }}">
+		{% for key, value in options %}
+		{% set forId = uniqueKey() %}
+		<div class="form-check">
+			<input class="form-check-input" type="{{ type }}" id="{{ forId }}" name="{{ name }}" value="{{ key }}" {% if loop.first %}checked{% endif %}>
+			<label class="form-check-label" for="{{ forId }}">{{ value }}</label>
+		</div>
+		{% endfor %}
+		<div class="btn-group-filter">
+			<div class="btn btn-cancel" data-filter-control="clear">Clear</div>
+			<div class="btn btn-apply" data-filter-control="apply" data-collapse-auto="filter-{{ name }}">Apply</div>
+		</div>
+	</div>
+</div>
+
+{% endmacro filterOptions %}
+
+{#
+	Modal Background
+
+	Returns modal background HTML
+	Modal content is another marco, see modalContent()
+	@param void
+#}
+{% macro modalBackground() %}
+<div class="modal" data-modal="modal"></div>
+{% endmacro modalBackground %}
+
+{#
+	Modal Content
+
+	Returns modal content HTML
+	Modal background is another marco, see modalBackground()
+	@param void
+#}
+{% macro modalContent() %}
+<div class="modal-content" data-modal="content">
+	<div class="modal-header">
+		{# Header gets inserted here #}
+		<h3 data-modal="header"></h3>
+		<i class="fas fa-times modal-dismiss" aria-hidden="true" data-modal="dismiss"></i>
+	</div>
+
+	{# Content gets inserted here #}
+	<div class="modal-body" data-modal="body"></div>
+</div>
+{% endmacro modalContent %}
+
+{#
+	Spinner
+
+	Returns spinner HTML
+#}
+{% macro spinner() %}
+<div class="spinner" data-spinner="true"></div>
+{% endmacro spinner %}

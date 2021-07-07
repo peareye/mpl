@@ -1,0 +1,73 @@
+// Collection Styles
+
+.cards {
+
+  @include margin(2rem null null null);
+  display              : grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap                  : 1rem;
+  list-style           : none;
+
+  a {
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.card {
+  height    : 100%;
+  box-shadow: 0 0 25px rgba(black, .15);
+
+  display        : flex;
+  flex-direction : column;
+  justify-content: flex-start;
+
+  &__image {
+    background-position: center center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    filter             : contrast(70%);
+    overflow           : hidden;
+    position           : relative;
+    transition         : filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+
+    img {
+      height    : 175px;
+      object-fit: cover;
+    }
+
+  }
+
+  &__title {
+    @include padding(1rem);
+    background: var(--clr-primary-light);
+    height: 100px;
+
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+
+    h3 {
+      // @include padding(1rem);
+      font-family: var(--ff-sans);
+      color      : white;
+      font-size  : 1.3rem;
+      font-weight: var(--fw-l);
+      line-height: 1.2;
+    }
+
+  }
+
+  &__text {
+    @include padding(null 1rem 1rem);
+    flex: 1 1 auto;
+  }
+
+  &:hover {
+    .card__image {
+      filter: contrast(100%);
+    }
+  }
+}

@@ -1,0 +1,66 @@
+// HAMBURGER
+
+// Nav Toggle (using checkbox :checked)
+.nav-toggle,
+.element-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+// Nav Toggle Label & hamburger icon w/animation
+.nav-toggle-label {
+  cursor: pointer;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  z-index: 999;
+
+  @media screen and (min-width: $breakpoint) {
+   display: none;
+   z-index: 0;
+
+ }
+ span,
+ span::before,
+ span::after {
+   width: 2rem;
+   height: 4px;
+   border-radius: $border-radius;
+   background: $text-accent;
+
+ }
+
+ span::before,
+ span::after {
+   content: '';
+   position: absolute;
+   transform: rotate(0deg);
+   transition: transform 125ms ease;
+ }
+
+ span::before {
+   top: 33px;
+ }
+
+ span::after {
+   bottom: 33px;
+ }
+
+}
+.nav-toggle:checked~.nav-toggle-label span {
+ background: transparent;
+}
+
+.nav-toggle:checked~.nav-toggle-label span:before {
+ transform: rotate(45deg);
+ top: 21px;
+}
+
+.nav-toggle:checked~.nav-toggle-label span:after {
+ transform: rotate(-45deg);
+ bottom: 25px;
+}

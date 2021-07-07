@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="PitonCMS">
+
+  <title>Login</title>
+
+  <link rel="stylesheet" href="{{ baseUrl() }}/admin/css/main.css?v={{ site.environment.assetVersion }}">
+
+</head>
+
+<body>
+
+  <div class="loginPage">
+    <div class="loginPage__inner">
+      <h2 class="loginPage__title">{{ site.settings.siteName }} Login</h2>
+      <form class="loginPage__form" action="{{ pathFor('adminRequestLoginToken') }}" method="post" accept-charset="utf-8">
+        <input type="hidden" name="{{ site.environment.csrfTokenName }}" value="{{ site.environment.csrfTokenValue }}">
+
+        <div class="input-group">
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email" id="inputEmail" class="" name="email" maxlength="60" placeholder="Enter registered email"
+            required autofocus>
+        </div>
+
+        <input class="btn btn-save" type="submit" value="Request Login Link">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

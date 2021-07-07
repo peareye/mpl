@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "Contact custom inputs validation schema",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "description": "Contact field display name in admin messages.",
+                "type": "string"
+            },
+            "key": {
+                "description": "Input element name attribute. Single camelCase word with only a-z and A-Z characters, dash and underscore.",
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9-_]+$"
+            }
+        },
+        "required": ["key"]
+    }
+}

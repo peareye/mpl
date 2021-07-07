@@ -1,0 +1,175 @@
+/* Layout */
+/* Header, Logo */
+.top-header {
+ @include padding(null 1em);
+ background-color: $bg-dark;
+ color: $text-accent;
+ height: $nav-height;
+
+ position: fixed;
+ left: 0;
+ right: 0;
+ width: 100%;
+ z-index: 201;
+ box-shadow: $box-shadow;
+
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+
+ .logo {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: $nav-height;
+  display: flex;
+  letter-spacing: 1.4px;
+  justify-content: flex-start;
+  @include padding(0 0 0 4rem);
+
+  @media screen and (min-width: $breakpoint) {
+   @include padding(0);
+  }
+
+  a {
+   color: inherit;
+   text-decoration: none;
+   text-transform: uppercase;
+
+   &:hover {
+    color: $text-accent-hover;
+   }
+
+   span {
+    text-transform: lowercase;
+   }
+  }
+ }
+
+ .btn-dropdown {
+  height: $nav-height;
+  background: inherit;
+  color: inherit;
+  &:hover {
+   background: inherit;
+   cursor: pointer;
+  }
+ }
+}
+
+/* Full sidebar/content wrapper to create columns */
+.wrapper {
+ min-height: 100%;
+ @include padding(#{$nav-height} null null null);
+ display: flex;
+ flex-flow: row nowrap;
+ position: relative;
+
+ @media screen and (min-width: $breakpoint) {
+  @include padding(#{$nav-height} null null #{$nav-width});
+ }
+
+ .sidebar {
+  background: $bg-light !important;
+  min-width: $nav-width;
+  height: calc(100vh - #{$nav-height});
+  flex-grow: 1;
+  font-size: .875rem;
+  border-right: solid $border 1px;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: $nav-height;
+  z-index: 200;
+
+  transform: scale(0, 1);
+  transform-origin: left;
+  transition: transform 250ms ease-in-out;
+
+  @media screen and (min-width: $breakpoint) {
+   transform: scale(1, 1);
+   display: block;
+   position: fixed;
+   height: calc(100vh - #{$nav-height});
+  }
+ }
+
+ .main-content {
+  background: $bg-light;
+  flex-basis: 0;
+  flex-grow: 999;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+ }
+}
+
+// Content Header Styles
+.content-header {
+ @include padding(0 1em);
+ background: $bg-light;
+ min-height: $nav-height;
+ width: 100%;
+ box-shadow: $box-shadow-1;
+
+ display: flex;
+ align-items: center;
+
+ position: fixed;
+ z-index: 100;
+ top: $nav-height;
+
+ @media screen and (min-width: $breakpoint) {
+  width: calc(100vw - #{$nav-width});
+ }
+
+ &-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+ }
+
+ .breadcrumb {
+  font-weight: 300;
+  // font-size: 0.75rem;
+  @include padding(null 1em null null);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+   color: $text-accent;
+
+   &:hover {
+    color: $text-accent-hover;
+   }
+  }
+   *+*, .breadcrumb__indicator {
+ 
+    @include margin(null null null .5rem);
+
+  }
+ }
+
+ /* Section Title */
+ .section-title {
+  @include margin(0 1rem 0 0);
+  @include padding(0);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 2rem;
+
+ }
+}
+
+// Content Section Layout
+.container {
+ width: 100%;
+ max-width: $container-max;
+ @include margin(0 auto);
+}
+
+.content {
+ @include padding(calc(#{$nav-height} + 1em) 1em 1em 1em);
+}

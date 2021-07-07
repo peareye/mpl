@@ -1,0 +1,29 @@
+.help-content {
+  background: $bg-white;
+  @include padding(1rem 1rem 2rem 1rem);
+  @include margin(null null 4rem null);
+
+  ol,
+  li {
+    @include margin(null null null 1rem);
+    @include padding(null null null -1rem);
+  }
+
+  pre {
+    white-space: pre-wrap;
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
+    text-align: justify;
+  }
+}
+
+.help-content *+* {
+  margin-top: 1rem;
+}

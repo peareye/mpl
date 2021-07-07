@@ -1,0 +1,52 @@
+{#
+  Message Row Macro
+  @param object message
+#}
+{% macro messageRow(message) %}
+{% set faIcon = (message.isRead == 'N') ? 'fa-envelope' : (message.isRead == 'Y' ? 'fa-envelope-open' : 'fa-archive') %}
+
+<div class="message-block" data-message="parent" data-message-id="{{ message.id }}">
+  <div class="message-wrapper">
+    <div class="message-header span">
+      <div class="message-link">
+        <a href="mailto:{{ message.email }}" target="_blank">
+          <i class="fas {{ faIcon }}"></i>&nbsp;&nbsp;{{ message.name }}</a>
+      </div>
+
+      <div class="message-date">
+        Sent:&nbsp;&nbsp;{{ message.createdDate|date('d F Y h:i a') }}
+      </div>
+
+      <div class="message-origin">
+        Via:&nbsp;&nbsp; {{ message.context|default('Unknown Page') }}
+      </div>
+    </div>
+
+    <div class="message-content">
+      <p>{{ message.message|nl2br }}</p>
+      <br>
+      {% for field in message.inputs %}
+        <p>{{ field.name }}: {{ field.data_value }}</p>
+      {% endfor %}
+    </div>
+
+    {#  Control Button State
+        - New messages can be archived or set to read status
+        - Read messages can be archived or set to unread status
+        - Archived messages can set to read status
+        - Any message can be deleted
+    #}
+    <div class="btn-group">
+      <button class="btn btn-delete" type="button" data-message-control="delete" data-message-delete-prompt="Are you sure you want to delete this message?">Delete</button>
+      <button class="btn btn-archive" type="button" data-message-control="archive">
+        {% if message.is_read in ['Y','N'] %}Archive{% else %}Unarchive{% endif %}
+      </button>
+      {% if message.is_read != 'A' %}
+      <button class="btn btn-save" type="button" data-message-control="read">
+        {% if message.is_read == 'N' %}Mark Read{% elseif message.is_read == 'Y' %}Mark Unread{% endif %}
+      </button>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endmacro messageRow %}

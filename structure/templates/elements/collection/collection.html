@@ -1,0 +1,40 @@
+{# Collection Element #}
+
+{# Get the collection summary set. The second argument is the number of items to return per page #}
+{% set collection = getCollectionPagesWithPagination(element.collection_id, 6) %}
+
+
+<div class="element">
+  <h2>{{ element.title }}</h2>
+  {{ element.content }}
+
+  <ul class="cards">
+    {% for detail in collection %}
+    <a href="{{ pathFor('showPage', {'slug1': detail.collection_slug, 'slug2': detail.page_slug}) }}">
+      <li class="card">
+
+
+        {% if detail.media.filename %}
+        <div class="card__image">
+          <img src="{{ getMediaPath(detail.media.filename, 'thumb') }}">
+        </div>
+        {% endif %}
+
+        <div class="card__title">
+          <h3>{{ detail.title }}</h3>
+        </div>
+        <p class="card__text">
+          {{ detail.meta_description }}
+        </p>
+
+
+
+      </li>
+    </a>
+
+    {% endfor %}
+  </ul>
+
+  {# Print pagination navigation #}
+  {{ pagination() }}
+</div>

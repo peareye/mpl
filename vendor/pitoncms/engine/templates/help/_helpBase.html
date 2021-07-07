@@ -1,0 +1,23 @@
+{% extends '@admin/_adminBase.html' %}
+
+{% block htmlTitle 'Support' %}
+
+{% block contentHeader %}
+<div class="content-header-inner">
+  <div class="breadcrumb">
+    {% if page.helpContent or page.subject == 'designer' %}
+    <a href="{{ pathFor('adminHelp', {'subject': 'client'}) }}">
+      Support<i class="fas fa-chevron-right breadcrumb__indicator"></i>
+    </a>
+
+      {% if page.helpContent and page.subject == 'designer' %}
+      <a href="{{ pathFor('adminHelp', {'subject': 'designer'}) }}">
+        Designer<i class="fas fa-chevron-right breadcrumb__indicator"></i>
+      </a>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% set breadcrumbTitle = page.breadcrumbTitle ?? ((page.subject == 'designer') ? 'Designer' : 'Support') %}
+  <h1 class="section-title">{{ breadcrumbTitle }}</h1>
+</div>
+{% endblock contentHeader %}

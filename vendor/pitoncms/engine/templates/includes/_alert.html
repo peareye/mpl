@@ -1,0 +1,12 @@
+{#
+    Alert Dialog
+
+    Display alert messages if set by the application.
+#}
+{% import "@admin/includes/_pitonMacros.html" as pitonMacro %}
+
+{% for a in getAlert() %}
+
+  {{ pitonMacro.alert(a.severity, a.heading, a.message) }}
+
+{% endfor %}
