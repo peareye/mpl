@@ -11,10 +11,6 @@
                 {
                     "name": "Default",
                     "value": "default"
-                },
-                {
-                    "name": "Theme",
-                    "value": "theme"
                 }
             ]
         },
@@ -65,13 +61,6 @@
             "label": "Facebook Link",
             "key": "facebookLink",
             "value": "https://www.facebook.com",
-            "inputType": "url"
-        },
-        {
-            "category": "social",
-            "label": "Github Link",
-            "key": "githubLink",
-            "value": "https://www.github.com",
             "inputType": "url"
         },
         {
