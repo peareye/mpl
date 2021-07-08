@@ -62,6 +62,39 @@
   $nav-height    : 60px;
   $scale         : 0; // Scales the navigation. valid #'s 0 -> 1. Zero value is collapsed.
 
+  $clr-primary: hsl(177, 44%, 65%);
+$clr-red: #e13c19;
+
+$clr-green: hsl(147, 80%, 26%);
+$clr-blue: hsl(235, 47%, 21%);
+$clr-yellow: hsl(40, 94%, 58%);
+$clr-pink: hsl(334, 78%, 87%);
+$clr-white: hsl(0, 0%, 100%);
+$clr-black: rgb(55,55,55);
+
+
+$nav-height: 120px;
+$scale: 0;
+$breakpoint: 768px;
+
+// Font Weights
+$fw-l: 300;
+$fw-n: 400;
+$fw-b: 600;
+$fw-s: 900;
+
+// Font Families
+
+$ff-serif: serif;
+$ff-sans: 'Poppins', sans-serif;
+
+// Media Queries
+
+$mq-sm: 576px;
+$mq-md: 768px;
+$mq-lg: 991px;
+$mq-xl: 1200px;
+
   /* 
       CSS VARIABLES 
  

@@ -1,11 +1,47 @@
+<header>
+  <div class="logo">
+    <a href="{{ pathFor('home') }}">
+      <img src="assets/img/svg/mypieLogo.svg" alt="{{ site.settings.siteName }}">
+    </a>
+
+    <img class="headerSVG" src="assets/img/svg/happyHalfGuyLeaning.svg" alt="">
+  </div>
+
+
+  <!-- <div class="controls">
+    <a href="wholesale.html">Wholesale</a>
+    <a href="menu.html">Menu</a>
+    <a href="shop.html">Shop Now</a>
+  </div> -->
+</header>
+
+<input type="checkbox" name="toggle" id="toggle" class="toggle">
+<label for="toggle" class="toggle-label"><span></span></label>
+
+<!-- <nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop Now</a></li>
+    <li><a href="friends.html">Friends of MyPie</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="wholesale.html">Wholesale</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="faq.html">FAQs</a></li>
+   
+    
+  </ul>
+
+  
+ 
+</nav> -->
+
 <nav id="navbar" class="navbar">
 
-    <div class="logo">
-      <a href="{{ pathFor('home') }}">{{ site.settings.siteName|default('Piton<span>CMS</span>') }}</a>
-    </div>
 
-    <input type="checkbox" name="hamburger-toggle" id="hamburger-toggle" class="toggle">
-    <label for="hamburger-toggle" class="toggle-label-hamburger"><span></span></label>
+
+    <!-- <input type="checkbox" name="hamburger-toggle" id="hamburger-toggle" class="toggle">
+    <label for="hamburger-toggle" class="toggle-label-hamburger"><span></span></label> -->
 
 
       <ul class="nav">
@@ -37,4 +73,5 @@
 
         {% endfor %}
       </ul>
+      <img class="chicken1SVG" src="assets/img/svg/chicken1.svg" alt="">
 </nav>
