@@ -98,11 +98,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -202,10 +203,6 @@ h6 {
   font-size: 1rem;
 }
 
-main {
-  padding: calc(120px * 1.5) 0;
-}
-
 .container {
   margin: auto;
   width: 100%;
@@ -235,28 +232,6 @@ main {
 
 .span {
   grid-column: 1/-1 !important;
-}
-
-.chicken1SVG {
-  position: absolute;
-  right: 0.5em;
-  bottom: 0;
-  width: clamp(2rem, 10vw, 5rem);
-}
-
-.wooHooSVG {
-  position: fixed;
-  z-index: -1;
-  bottom: 0;
-  right: 0.5em;
-  height: 20%;
-}
-
-.headerSVG {
-  position: absolute;
-  right: 0;
-  bottom: 0px;
-  height: clamp(2rem, 20vw, 4rem);
 }
 
 .btn {
@@ -461,23 +436,6 @@ textarea:focus {
   outline: none;
 }
 
-.gallery-wrapper {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-.gallery-wrapper .gallery-img {
-  margin-top: 0;
-}
-.gallery-wrapper .gallery-img img {
-  border-radius: var(--br);
-  box-shadow: var(--bs);
-  height: 250px;
-  object-fit: cover;
-}
-
 .imageElement__image {
   max-height: 450px;
 }
@@ -523,152 +481,6 @@ textarea:focus {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.nav-toggle {
-  position: absolute;
-  top: -999px !important;
-  left: -9999px !important;
-}
-
-.nav-toggle-label {
-  margin: 0;
-  cursor: pointer;
-  height: var(--nav-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 100;
-  width: var(--nav-height);
-}
-@media screen and (min-width: 768px) {
-  .nav-toggle-label {
-    display: none;
-  }
-}
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  width: calc(var(--nav-height)/ 2);
-  height: 4px;
-  border-radius: var(--br);
-  background: var(--nav-text);
-  position: relative;
-}
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  content: "";
-  position: absolute;
-  transform: rotate(0deg);
-  transition: transform 125ms ease;
-}
-.nav-toggle-label span::before {
-  top: 10px;
-}
-.nav-toggle-label span::after {
-  top: -10px;
-}
-
-.nav.scroll * label > span,
-.nav.scroll * label > span::before,
-.nav.scroll * label > span::after {
-  background: white !important;
-}
-
-.nav-toggle:checked ~ .nav-toggle-label span {
-  background: transparent;
-}
-
-.nav.scroll * .nav-toggle:checked ~ .nav-toggle-label span {
-  background: transparent !important;
-}
-
-.nav-toggle:checked ~ .nav-toggle-label span::before {
-  transform: rotate(135deg);
-  top: 0px;
-}
-
-.nav-toggle:checked ~ .nav-toggle-label span::after {
-  transform: rotate(-135deg);
-  top: 0px;
-}
-
-header {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  background: #7ecdc9;
-  height: calc(120px + 4em);
-  position: relative;
-}
-header .logo {
-  text-align: center;
-}
-header img {
-  height: calc(120px + 2em);
-  display: inline-block;
-}
-
-.controls {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
-}
-.controls a {
-  padding: 0.25em 0.5em;
-  background: #40a5a0;
-  color: white;
-  border-radius: 7px;
-  border: solid 1px #f2f2f2;
-  font-weight: 300;
-  text-decoration: none;
-  transition: all 125ms ease-in-out;
-}
-.controls a:hover {
-  background: #f9b52f;
-  color: #1c214f;
-  border-radius: 7px;
-  border: solid 1px #1c214f;
-}
-
-.navbar {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 300;
-  color: #1c214f;
-  background: white;
-  min-width: 30%;
-  max-width: 50%;
-  height: 100%;
-  box-shadow: 2px 0 12px 5px rgba(28, 33, 79, 0.15);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 102;
-  transform: translateX(-105%);
-  transition: all 125ms ease;
-}
-.navbar ul {
-  list-style: none;
-  padding: 0;
-}
-.navbar li {
-  border-bottom: solid 1px #bebebe;
-}
-.navbar a {
-  text-decoration: none;
-  display: block;
-  color: #1c214f;
-  padding: 1rem;
-}
-.navbar a:hover {
-  background: #f9b52f;
-}
-
-.toggle:checked ~ .navbar {
-  transform: translateX(0);
 }
 
 .toggle-label {
@@ -730,6 +542,86 @@ header img {
 .toggle:checked ~ .toggle-label span::after {
   transform: rotate(-135deg);
   top: 0px;
+}
+
+header {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: #7ecdc9;
+  height: calc(120px + 4em);
+  width: 100%;
+  position: relative;
+}
+header .logo {
+  text-align: center;
+  padding-right: 4rem;
+  padding-left: 4rem;
+}
+header img {
+  height: calc(120px + 2em);
+  display: inline-block;
+}
+header .controls {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+header .controls a {
+  padding: 0.25em 0.5em;
+  background: #40a5a0;
+  color: white;
+  border-radius: 7px;
+  border: solid 1px #f2f2f2;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 125ms ease-in-out;
+}
+header .controls a:hover {
+  background: #f9b52f;
+  color: #1c214f;
+  border-radius: 7px;
+  border: solid 1px #1c214f;
+}
+
+.navbar {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  color: #1c214f;
+  background: white;
+  min-width: 30%;
+  max-width: 50%;
+  height: 100%;
+  box-shadow: 2px 0 12px 5px rgba(28, 33, 79, 0.15);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 102;
+  transform: translateX(-105%);
+  transition: all 125ms ease;
+}
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+.navbar li {
+  border-bottom: solid 1px #bebebe;
+}
+.navbar a {
+  text-decoration: none;
+  display: block;
+  color: #1c214f;
+  padding: 1rem;
+}
+.navbar a:hover {
+  background: #f9b52f;
+  color: white;
+}
+
+.toggle:checked ~ .navbar {
+  transform: translateX(0);
 }
 
 .footer {
@@ -853,6 +745,33 @@ header img {
 }
 .pagination .page-link.active a {
   color: var(--clr-white);
+}
+
+.chicken1SVG {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0;
+  width: clamp(2rem, 10vw, 5rem);
+}
+
+.wooHooSVG {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  right: 0.5em;
+  height: 20%;
+}
+
+.headerSVG {
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  height: clamp(2rem, 20vw, 4rem);
+}
+
+.inlineSVG {
+  display: inline;
+  width: auto;
 }
 
 /*# sourceMappingURL=main.css.map */

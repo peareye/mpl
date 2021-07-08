@@ -1,0 +1,26 @@
+.chicken1SVG {
+  position: absolute;
+  right   : .5em;
+  bottom  : 0;
+  width: clamp(2rem, 10vw, 5rem);
+}
+.wooHooSVG {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  right: .5em;
+  height: 20%;
+
+}
+
+.headerSVG {
+position: absolute;
+right: 0;
+bottom: -3px;
+height: clamp(2rem, 20vw, 4rem);
+}
+.inlineSVG {
+ 
+  display: inline;
+  width: auto;
+}
