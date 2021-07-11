@@ -668,7 +668,6 @@ header .controls a:hover {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-top: 1rem;
-  background: var(--clr-primary-dark);
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -766,7 +765,7 @@ header .controls a:hover {
   position: absolute;
   right: 0;
   bottom: -3px;
-  height: clamp(2rem, 20vw, 4rem);
+  height: clamp(4rem, 20vw, 8rem);
 }
 
 .inlineSVG {

@@ -51,7 +51,7 @@
   .footer2 {
     @include padding(1rem null);
     @include margin(1rem null null);
-    background     : var(--clr-primary-dark);
+    // background     : var(--clr-primary-dark);
     display        : flex;
     flex-flow      : column nowrap;
     justify-content: center;
