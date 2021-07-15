@@ -1,9 +1,7 @@
 // Toggle Hamburger
 .toggle-label {
-  background: $clr-primary;
-
-  height: 4em;
-  width : 4em;
+  height: 3em;
+  width : 3em;
   cursor: pointer;
 
   display        : flex;
@@ -60,8 +58,8 @@
 // Nav Toggle Animation
 .toggle:checked~.toggle-label {
   filter: drop-shadow(0 2px 2px rgba($clr-blue, .15));
-
-  left: 30%;
+  background: rgba($clr-primary,.5);
+  left: 50%;
 
 }
 

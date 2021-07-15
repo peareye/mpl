@@ -1,6 +1,6 @@
 {
-    "templateName": "Without Hero",
-    "templateDescription": "Page without hero image and with content blocks.",
+    "templateName": "Default",
+    "templateDescription": "Defalt Page without hero image and with content blocks.",
     "showFeaturedImage": true,
     "templateType": "page",
     "blocks": [
@@ -8,7 +8,10 @@
             "name": "Content",
             "key": "contentBlock",
             "description": "Home page text areas",
-            "elementTypeDefault": "text/text"
+            "elementTypeOptions": [
+                "image/image", "text/text", "contact/contact"
+              ]
+
         }
     ]
 }

@@ -1,0 +1,43 @@
+{
+  "templateName": "Home Page",
+  "templateDescription": "Page with hero image and content blocks.",
+  "showSubTitle": false,
+  "showFeaturedImage": true,
+  "templateType": "page",
+  "blocks": [{
+      "name": "Hero Image",
+      "key": "heroBlock",
+      "description": "Large full width image",
+      "elementTypeOptions": [
+        "hero/hero"
+      ],
+      "elementCountLimit": 1
+    },
+    {
+      "name": "News",
+      "key": "newsBlock",
+      "description": "News Block",
+      "elementTypeOptions": [
+        "text/text"
+      ],
+      "elementCountLimit":1
+    },
+    {
+      "name": "Second Hero Image",
+      "key": "secondHeroBlock",
+      "description": "Large full width image",
+      "elementTypeOptions": [
+        "hero/hero"
+      ],
+      "elementCountLimit": 1
+    },
+    {
+      "name": "Reviews",
+      "key": "reviewBlock",
+      "description": "List of Reviews [Name, Text]",
+      "elementTypeOptions": [
+        "review/review"
+      ]
+    }
+  ]
+}

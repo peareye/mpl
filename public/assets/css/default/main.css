@@ -242,7 +242,7 @@ h6 {
   border: solid 10px rgba(var(--clr-black), 50);
   border-radius: var(--br);
   color: var(--clr-white);
-  z-index: 999;
+  z-index: 101;
   box-shadow: none;
   transition: all ease-in-out 125ms;
   text-decoration: none;
@@ -484,9 +484,8 @@ textarea:focus {
 }
 
 .toggle-label {
-  background: #7ecdc9;
-  height: 4em;
-  width: 4em;
+  height: 3em;
+  width: 3em;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -527,7 +526,8 @@ textarea:focus {
 
 .toggle:checked ~ .toggle-label {
   filter: drop-shadow(0 2px 2px rgba(28, 33, 79, 0.15));
-  left: 30%;
+  background: rgba(126, 205, 201, 0.5);
+  left: 50%;
 }
 
 .toggle:checked ~ .toggle-label span {
@@ -591,9 +591,8 @@ header .controls a:hover {
   font-weight: 300;
   color: #1c214f;
   background: white;
-  min-width: 30%;
-  max-width: 50%;
-  height: 100%;
+  width: 50%;
+  min-height: 100%;
   box-shadow: 2px 0 12px 5px rgba(28, 33, 79, 0.15);
   position: absolute;
   top: 0;
@@ -764,7 +763,7 @@ header .controls a:hover {
 .headerSVG {
   position: absolute;
   right: 0;
-  bottom: -3px;
+  bottom: -5px;
   height: clamp(4rem, 20vw, 8rem);
 }
 
