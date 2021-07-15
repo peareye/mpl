@@ -1,0 +1,34 @@
+{
+ "templateName": "Friends of MYPIE",
+ "templateDescription": "Collection page with hero image and content blocks.",
+ "showSubTitle": false,
+ "showFeaturedImage": true,
+ "templateType": "collection",
+ "blocks": [
+    
+     {
+         "name": "Content",
+         "key": "contentBlock",
+         "description": "Page Content Blocks",
+         "elementTypeDefault": "elements/image/image"
+     }
+ ],
+ "settings": [
+     {
+         "category": "page",
+         "label": "Link to Friend",
+         "key": "url",
+         "value": "",
+        "inputType": "text",
+         "help": "Copy entire URL including the http or https here."
+       },
+     {
+         "category": "page",
+         "label": "Phone Number",
+         "key": "phoneNumber",
+         "value": "",
+         "inputType": "text",
+         "help": "Add phone number here."
+     }
+ ]
+}
