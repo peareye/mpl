@@ -1,4 +1,0 @@
-# Things to ignore
-vendor/*
-composer.lock
-package-lock.json
