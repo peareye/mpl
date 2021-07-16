@@ -1,0 +1,61 @@
+{# Daily Single Menu #}
+{% extends 'pages/_base_layout.html' %}
+
+{% block body %}
+
+<p>Date: {{ page.settings.pitchDate|date('j F Y') }}</p>
+<p>Location: {{ page.settings.pitchLocation }}</p>
+
+{# TODO: Convert to Twig Macro and reuse for dailyMenu.html and currentMenu.html templates #}
+
+{# Daily Pies #}
+{% if page.blocks.dailyPies %}
+<section class="collectionDetail element">
+  <h3>Daily Pies</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(page.blocks.dailyPies) }}
+  </div>
+</section>
+{% endif %}
+
+{# Sides #}
+{% if page.blocks.dailySides %}
+<section class="collectionDetail element">
+  <h3>Sides</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(page.blocks.dailySides) }}
+  </div>
+</section>
+{% endif %}
+
+{# Sausage Rolls and Other #}
+{% if page.blocks.dailyRolls %}
+<section class="collectionDetail element">
+  <h3>Sausage Rolls &amp; Other</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(page.blocks.dailyRolls) }}
+  </div>
+</section>
+{% endif %}
+
+{# Puds #}
+{% if page.blocks.dailyPuds %}
+<section class="collectionDetail element">
+  <h3>Sausage Rolls &amp; Other</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(page.blocks.dailyPuds) }}
+  </div>
+</section>
+{% endif %}
+
+{# Takeaway Pies #}
+{% if page.blocks.dailyTakeawayPies %}
+<section class="collectionDetail element">
+  <h3>Takeaway Pies</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(page.blocks.dailyTakeawayPies) }}
+  </div>
+</section>
+{% endif %}
+
+{% endblock body %}

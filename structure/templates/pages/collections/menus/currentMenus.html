@@ -1,0 +1,74 @@
+{# All current and future menus #}
+{% extends 'pages/_base_layout.html' %}
+
+{% block body %}
+
+{# Menu page boilerplate intro text #}
+{{ getBlockElementsHtml(page.blocks.menuText) }}
+
+{# Start menu loop #}
+{% for menu in getActiveMenus(7) %}
+{# TODO: Convert to Twig Macro and reuse for dailyMenu.html and currentMenu.html templates #}
+
+<p>Date: {{ menu.settings.pitchDate|date('j F Y') }}</p>
+<p>Location: {{ menu.settings.pitchLocation }}</p>
+
+{# Daily Pies #}
+{% if menu.blocks.dailyPies %}
+<section class="collectionDetail element">
+  <h3>Daily Pies</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(menu.blocks.dailyPies) }}
+  </div>
+</section>
+{% endif %}
+
+{# Sides #}
+{% if menu.blocks.dailySides %}
+<section class="collectionDetail element">
+  <h3>Sides</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(menu.blocks.dailySides) }}
+  </div>
+</section>
+{% endif %}
+
+{# Sausage Rolls and Other #}
+{% if menu.blocks.dailyRolls %}
+<section class="collectionDetail element">
+  <h3>Sausage Rolls &amp; Other</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(menu.blocks.dailyRolls) }}
+  </div>
+</section>
+{% endif %}
+
+{# Puds #}
+{% if menu.blocks.dailyPuds %}
+<section class="collectionDetail element">
+  <h3>Sausage Rolls &amp; Other</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(menu.blocks.dailyPuds) }}
+  </div>
+</section>
+{% endif %}
+
+{# Takeaway Pies #}
+{% if menu.blocks.dailyTakeawayPies %}
+<section class="collectionDetail element">
+  <h3>Takeaway Pies</h3>
+  <div class="collectionDetail__content">
+    {{ getBlockElementsHtml(menu.blocks.dailyTakeawayPies) }}
+  </div>
+</section>
+{% endif %}
+
+<hr>
+{% else %}
+{# If no menus found, show default text element #}
+{{ getBlockElementsHtml(page.blocks.defaultText) }}
+
+{% endfor %}
+{# End Menu Loop #}
+
+{% endblock body %}

@@ -1,0 +1,23 @@
+{
+"templateName": "Current Menus",
+"templateDescription": "All current and future menus",
+"showSubTitle": false,
+"showFeaturedImage": false,
+"templateType": "page",
+"blocks": [
+    {
+        "name": "Menu Text",
+        "key": "menuText",
+        "description": "Menu overview text.",
+        "elementTypeDefault": "text/text",
+        "elementTypeOptions": ["text/text"]
+    },
+    {
+      "name": "No Menu Default Text",
+      "key": "defaultText",
+      "description": "Default text to display if there are no current menus.",
+      "elementTypeDefault": "text/text",
+      "elementTypeOptions": ["text/text"]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+    "elementName": "Menu Item",
+    "elementDescription": "Menu item element",
+    "showContentTextarea": false,
+    "settings": [
+        {
+            "category": "element",
+            "label": "Category",
+            "key": "item",
+            "value": "",
+            "inputType": "select",
+            "options": [
+                {
+                    "name": "- Choose Category -",
+                    "value": ""
+                },
+                {
+                    "name": "Beef",
+                    "value": "Beef"
+                },
+                {
+                    "name": "Chicken",
+                    "value": "Chicken"
+                },
+                {
+                    "name": "Guest 1",
+                    "value": "Guest1"
+                },
+                {
+                    "name": "Guest 2",
+                    "value": "Guest2"
+                },
+                {
+                    "name": "Mash",
+                    "value": "Mash"
+                },
+                {
+                    "name": "Peas",
+                    "value": "Peas"
+                },
+                {
+                    "name": "Potato",
+                    "value": "Potato"
+                },
+                {
+                    "name": "Pud",
+                    "value": "Pud"
+                },
+                {
+                    "name": "Salad",
+                    "value": "Salad"
+                },
+                {
+                    "name": "Sausage Roll",
+                    "value": "SausageRoll"
+                },
+                {
+                    "name": "Scotch Egg",
+                    "value": "ScotchEgg"
+                },
+                {
+                    "name": "Vegetarian",
+                    "value": "Vegetarian"
+                },
+                {
+                    "name": "Other",
+                    "value": "Other"
+                }
+            ]
+        },
+        {
+            "category": "element",
+            "label": "Price",
+            "key": "price",
+            "inputType": "text"
+        }
+    ]
+}

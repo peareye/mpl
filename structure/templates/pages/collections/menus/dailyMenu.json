@@ -1,0 +1,55 @@
+{
+"templateName": "Daily Menu",
+"templateDescription": "Single menu.",
+"showSubTitle": false,
+"showFeaturedImage": false,
+"templateType": "collection",
+"settings": [
+    {
+      "category": "page",
+      "label": "Pitch Date",
+      "key": "pitchDate",
+      "inputType": "date",
+      "help": "Auto sets the Publish Date on save. Menus will be visible *immediately* in the Menus page until the the Pitch date."
+    },
+    {
+      "category": "page",
+      "label": "Pitch Location",
+      "key": "pitchLocation",
+      "inputType": "text",
+      "help": "Google Maps Plus Code"
+    }
+  ],
+"blocks": [
+    {
+      "name": "Daily Pies",
+      "key": "dailyPies",
+      "description": "List of daily pies.",
+      "elementTypeOptions": ["menu/menu"]
+    },
+    {
+      "name": "Sides",
+      "key": "dailySides",
+      "description": "List of daily sides.",
+      "elementTypeOptions": ["menu/menu"]
+    },
+    {
+      "name": "Sausage Rolls & Other",
+      "key": "dailyRolls",
+      "description": "List of sausage roles and others.",
+      "elementTypeOptions": ["menu/menu"]
+    },
+    {
+      "name": "Puds",
+      "key": "dailyPuds",
+      "description": "List of daily puds.",
+      "elementTypeOptions": ["menu/menu"]
+    },
+    {
+      "name": "Takeaway Pies",
+      "key": "dailyTakeawayPies",
+      "description": "List of daily takeaway pies.",
+      "elementTypeOptions": ["menu/menu"]
+    }
+  ]
+}
