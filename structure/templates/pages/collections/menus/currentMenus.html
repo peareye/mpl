@@ -7,11 +7,13 @@
 {{ getBlockElementsHtml(page.blocks.menuText) }}
 
 {# Start menu loop #}
-{% for menu in getActiveMenus(7) %}
+{% for menu in getActiveMenus(9) %}
 {# TODO: Convert to Twig Macro and reuse for dailyMenu.html and currentMenu.html templates #}
 
 <p>Date: {{ menu.settings.pitchDate|date('j F Y') }}</p>
 <p>Location: {{ menu.settings.pitchLocation }}</p>
+
+<p>Google Plus Code Link</p><a href="FPVF+QV London, United Kingdom">FPVF+QV London, United Kingdom</a>
 
 {# Daily Pies #}
 {% if menu.blocks.dailyPies %}
