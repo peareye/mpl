@@ -1,0 +1,26 @@
+{% extends 'pages/_base_layout.html' %}
+
+{% block body %}
+
+
+
+<section class="collectionDetail element">
+
+
+  <figure class="image">
+    {{ getMediaSrcSet(page.media.filename, page.media.caption, {'sizes': '(min-width: 1020px) 926px, 93.43vw'}) }}
+  </figure>
+
+  <div class="collectionDetail__content">
+    <h1>{{page.title }}</h1>
+    {{ getBlockElementsHtml(page.blocks.contentBlock) }}
+    <a href="{{ page.settings.url }}" target="_blank">Visit Site</a>
+  </div>
+
+
+  <a href="/friends-of-mypie" class="btn btn-link">Return to Friends</a>
+
+</section>
+
+
+{% endblock body %}

@@ -36,7 +36,7 @@ header {
       transition: all 125ms ease-in-out;
   
       &:hover {
-        background   : $clr-yellow;
+        background   : $clr-accent;
         color        : $clr-blue;
         border-radius: 7px;
         border       : solid 1px $clr-blue;
@@ -52,9 +52,10 @@ header {
   font-weight: $fw-l;
   color      : $clr-blue;
   background : $clr-white;
-  min-width  : 30%;
-  max-width  : 50%;
-  height     : 100%;
+  // min-width  : 30%;
+  width  : 50%;
+  min-height: 100%;
+  
 
   box-shadow: 2px 0 12px 5px rgba($clr-blue, .15);
 
@@ -83,7 +84,7 @@ header {
     @include padding(1rem);
 
     &:hover {
-      background: $clr-yellow;
+      background: $clr-accent;
       color: $clr-white;
     }
   }

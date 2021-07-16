@@ -11,6 +11,7 @@
     {% endif %}
 
     <title>{{ page.title ~ ' | ' ~ site.settings.siteName|default('PitonCMS') }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ baseUrl() }}/assets/css/{{ site.settings.theme|default('default') }}/main.css">
     <link rel="stylesheet" href="{{ baseUrl() }}/assets/fancybox/fancybox/fancybox.css">
 
@@ -21,14 +22,14 @@
     {% block hero %}
     {% endblock hero %}
 
-    <div class="container">
+   
         <main>
             {% block body %}
             {% endblock %}
         </main>
             {% block sidebar %}
             {% endblock %}
-    </div>
+ 
 
     {{ include("includes/_footer.html") }}
 

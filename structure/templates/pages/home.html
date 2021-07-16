@@ -1,0 +1,48 @@
+{% extends 'pages/_base_layout.html' %}
+
+{% block hero %}
+{{ getBlockElementsHtml(page.blocks.heroBlock) }}
+{% endblock hero %}
+
+{% block body %}
+<section id="news" class="element news">
+  <div class="container">
+    {{ getBlockElementsHtml(page.blocks.newsBlock) }}
+  </div>
+</section>
+
+
+{{ getBlockElementsHtml(page.blocks.secondHeroBlock) }}
+
+
+<section id="newsletter" class="element newsletterSubscribe">
+  <div class="container">
+    <h2>Newsletter Signup</h2>
+    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+      src="https://email-marketing.ionos.co.uk/widget/iframe/32tw/9RU" width="100%" height="auto"></iframe>
+  </div>
+</section>
+
+<section id="reviews" class="reviews">
+  <div class=><h2>What People are Saying</h2></div>
+  <div class="gridContainer">
+    {{ getBlockElementsHtml(page.blocks.reviewBlock) }}
+  </div>
+</section>
+
+
+<section id="insta-feed" class="element insta-feed">
+  <div class="container">
+    <h2>Latest on Instagram</h2>
+    <div id="instagram">
+     
+      <!-- LightWidget WIDGET -->
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+      <iframe src="https://cdn.lightwidget.com/widgets/998722a7bf445c73b341b029b9773a5f.html" scrolling="no"
+        allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+    </div>
+  </div>
+
+
+</section>
+{% endblock body %}
