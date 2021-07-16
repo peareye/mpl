@@ -1,14 +1,15 @@
 #!/bin/bash
 set -e
 
-# Set PHP error reporting
+# Set PHP error reporting & timezone
 PHP_ERROR_REPORTING=${PHP_ERROR_REPORTING:-"E_ALL"}
 HOST_DOMAIN="host.docker.internal"
-sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php/7.4/apache2/php.ini
-sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php/7.4/cli/php.ini
+sed -ri "s/^display_errors\s*=\s*Off/display_errors = On/g" /etc/php/7.4/apache2/php.ini
+sed -ri "s/^display_errors\s*=\s*Off/display_errors = On/g" /etc/php/7.4/cli/php.ini
 sed -ri "s/^error_reporting\s*=.*$//g" /etc/php/7.4/apache2/php.ini
 sed -ri "s/^error_reporting\s*=.*$//g" /etc/php/7.4/cli/php.ini
 sed -ri "s/^upload_max_filesize\s*=.*$/upload_max_filesize = 10M/" /etc/php/7.4/apache2/php.ini
+sed -ri "s/^;date.timezone\s*=.*/date.timezone=America\/Los_Angeles/g" /etc/php/7.4/apache2/php.ini
 grep -qxF "error_reporting = $PHP_ERROR_REPORTING" /etc/php/7.4/apache2/php.ini || echo "error_reporting = $PHP_ERROR_REPORTING" >> /etc/php/7.4/apache2/php.ini
 grep -qxF "error_reporting = $PHP_ERROR_REPORTING" /etc/php/7.4/cli/php.ini || echo "error_reporting = $PHP_ERROR_REPORTING" >> /etc/php/7.4/cli/php.ini
 
