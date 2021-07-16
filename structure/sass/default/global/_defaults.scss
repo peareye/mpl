@@ -9,8 +9,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
+  scroll-behavior        : smooth;
+  -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -24,10 +24,10 @@ body {
 body {
   background-color: $bg;
 
-  font-family     : var(--ff-sans);
-  color           : contrast-switch($bg);
-  font-weight     : 400;
-  line-height     : 1.6;
+  font-family: var(--ff-sans);
+  color      : contrast-switch($bg);
+  font-weight: 400;
+  line-height: 1.6;
 
   display  : flex;
   flex-flow: column nowrap;
@@ -89,7 +89,7 @@ h5,
 h6 {
   font-family   : var(--ff-serif);
   line-height   : 1.1;
-  color         : $clr-accent;
+  color         : var(--clr-dark-text);
   text-transform: capitalize;
 }
 
@@ -117,10 +117,15 @@ h6 {
   font-size: 1rem;
 }
 
+section {
+  @include padding(4rem null);
+
+}
+
 .container {
   @include margin(auto);
-  width: 100%;
-
+  width                : 100%;
+  text-align           : center;
   display              : grid;
   grid-template-columns: minmax(2rem, 1fr) minmax(auto, $max-container-width) minmax(2rem, 1fr);
 

@@ -1,20 +1,24 @@
   // Color Pallette
 
-  $clr-black      : rgb(51, 51, 51);
-  $clr-white      : rgb(255, 255, 255);
-  $clr-blue       : rgb(51, 102, 153);
+  $clr-black      : hsl(345, 6%, 13%);
+  $clr-white      : hsl(0, 0%, 100%);
+  $clr-blue-light : hsl(177, 44%, 65%);
+  $clr-orange     : rgb(255, 120, 31);
+  $clr-red        : hsl(11, 80%, 49%);
+  $clr-green      : hsl(147, 80%, 26%);
+  $clr-blue       : hsl(235, 47%, 21%);
+  $clr-orange     : hsl(40, 94%, 58%);
+  $clr-pink       : hsl(334, 78%, 87%);
+
   $clr-grey-light : rgb(240, 240, 240);
   $clr-grey-medium: rgb(204, 204, 204);
   $clr-grey-dark  : hsl(0, 0%, 30%);
-  $clr-orange     : rgb(255, 120, 31);
-  $clr-red        : rgb(255, 0, 0);
-  $clr-green      : rgb(0, 112, 0);
 
   // Theme -- DO NOT CHANGE VARIABLE NAMES. Update the  
 
-  $clr-primary      : $clr-blue;
+  $clr-primary      : $clr-blue-light;
   $clr-primary-dark : darken($clr-primary, 10);
-  $clr-primary-light: lighten($clr-primary, 20);
+  $clr-primary-light: lighten($clr-primary, 50);
   $clr-secondary    : adjust-hue($clr-primary, -20);
   $clr-accent       : $clr-orange;
   $clr-dark-text    : $clr-black;
@@ -62,38 +66,31 @@
   $nav-height    : 60px;
   $scale         : 0; // Scales the navigation. valid #'s 0 -> 1. Zero value is collapsed.
 
-  $clr-primary: hsl(177, 44%, 65%);
-$clr-red: #e13c19;
-
-$clr-green: hsl(147, 80%, 26%);
-$clr-blue: hsl(235, 47%, 21%);
-$clr-yellow: hsl(40, 94%, 58%);
-$clr-pink: hsl(334, 78%, 87%);
-$clr-white: hsl(0, 0%, 100%);
-$clr-black: rgb(55,55,55);
 
 
-$nav-height: 120px;
-$scale: 0;
-$breakpoint: 768px;
 
-// Font Weights
-$fw-l: 300;
-$fw-n: 400;
-$fw-b: 600;
-$fw-s: 900;
+  $nav-height: 120px;
+  $scale     : 0;
+  $breakpoint: 768px;
 
-// Font Families
+  // Font Weights
+  $fw-l: 300;
+  $fw-n: 400;
+  $fw-b: 600;
+  $fw-s: 900;
 
-$ff-serif: serif;
-$ff-sans: 'Poppins', sans-serif;
+  // Font Families
 
-// Media Queries
+  $ff-serif: serif;
+  $ff-sans : 'Poppins',
+  sans-serif;
 
-$mq-sm: 576px;
-$mq-md: 768px;
-$mq-lg: 991px;
-$mq-xl: 1200px;
+  // Media Queries
+
+  $mq-sm: 576px;
+  $mq-md: 768px;
+  $mq-lg: 991px;
+  $mq-xl: 1200px;
 
   /* 
       CSS VARIABLES 
