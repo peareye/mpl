@@ -17,7 +17,14 @@
       "label": "Pitch Location",
       "key": "pitchLocation",
       "inputType": "text",
-      "help": "Google Maps Plus Code"
+      "help": "Location Description"
+    },
+    {
+      "category": "page",
+      "label": "Map Link",
+      "key": "pitchLocationlink",
+      "inputType": "url",
+      "help": "Google Maps Link"
     }
   ],
 "blocks": [
