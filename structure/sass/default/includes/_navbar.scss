@@ -27,7 +27,7 @@ header {
     a {
       @include padding(.25em .5em);
       background     : darken($clr-primary, 20%);
-      color          : $clr-white;
+      color          : $clr-light-text;
       border-radius  : 7px;
       border         : solid 1px hsl(0, 0%, 95%);
       font-weight    : $fw-l;
@@ -37,9 +37,9 @@ header {
   
       &:hover {
         background   : $clr-accent;
-        color        : $clr-blue;
+        color        : $clr-dark-text;
         border-radius: 7px;
-        border       : solid 1px $clr-blue;
+        border       : solid 1px $clr-dark-text;
       }
     }
   }
@@ -50,14 +50,14 @@ header {
 .navbar {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: $fw-l;
-  color      : $clr-blue;
-  background : $clr-white;
+  color      : $clr-dark-text;
+  background : $bg-light;
   // min-width  : 30%;
   width  : 50%;
   min-height: 100%;
   
 
-  box-shadow: 2px 0 12px 5px rgba($clr-blue, .15);
+  box-shadow: 2px 0 12px 5px rgba($clr-dark-text, .15);
 
   position: absolute;
   top     : 0;
@@ -80,12 +80,12 @@ header {
 
     text-decoration: none;
     display        : block;
-    color          : $clr-blue;
+    color          : $clr-dark-text;
     @include padding(1rem);
 
     &:hover {
       background: $clr-accent;
-      color: $clr-white;
+      color: $clr-light-text;
     }
   }
 }

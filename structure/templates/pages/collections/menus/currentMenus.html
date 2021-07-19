@@ -3,72 +3,77 @@
 
 {% block body %}
 
-{# Menu page boilerplate intro text #}
-{{ getBlockElementsHtml(page.blocks.menuText) }}
+<div class="container">
+  
+    <section>
+      <h1 class="page-title">Daily Menus</h1>
+      {# Menu page boilerplate intro text #}
+      <div class="menuBlurb"> {{ getBlockElementsHtml(page.blocks.menuText) }}</div>
+    </section>
+  
+    <section>
+      {# Start menu loop #}
+      {% for menu in getActiveMenus(9) %}
+      {# TODO: Convert to Twig Macro and reuse for dailyMenu.html and currentMenu.html templates #}
+  
+      <div class="menus-wrapper">
+  
+        <div class="menu-wrapper">
+          <h3 class="menu-date span"> {{ menu.settings.pitchDate|date('j F Y') }} at {{ menu.settings.pitchLocation }} </h3>
+          {# Daily Pies #}
+          {% if menu.blocks.dailyPies %}
+  
+          <div class="pie-box">
+            <h4 class="menu-title">Pie w/mash or salad + gravy</h4>
+            {{ getBlockElementsHtml(menu.blocks.dailyPies) }}
+          </div>
+          {% endif %}
+  
+          {# Sausage Rolls and Other #}
+          {% if menu.blocks.dailyRolls %}
+  
+          <div class="sausage-box">
+            <h4 class="menu-title">Sausage Rolls &amp; More</h4>
+            {{ getBlockElementsHtml(menu.blocks.dailyRolls) }}
+          </div>
+          {% endif %}
+  
+  
+          {# Sides #}
+          {% if menu.blocks.dailySides %}
+          <div class="sides-box">
+            <h4 class="menu-title">Awesome Sides</h4>
+            {{ getBlockElementsHtml(menu.blocks.dailySides) }}
+          </div>
+          {% endif %}
+  
+          {# Puds #}
+          {% if menu.blocks.dailyPuds %}
+          <div class="puds-box">
+            <h4 class="menu-title">Puds</h4>
+            {{ getBlockElementsHtml(menu.blocks.dailyPuds) }}
+          </div>
+          {% endif %}
+  
+  
+          {# Takeaway Pies #}
+          {% if menu.blocks.dailyTakeawayPies %}
+          <div class="takeaway-box">
+            <h4 class="menu-title">Takeaway Pies</h4>
+            {{ getBlockElementsHtml(menu.blocks.dailyTakeawayPies) }}
+          </div>
+          {% endif %}
+        </div>
+  
+        {% else %}
+        {# If no menus found, show default text element #}
+        <div class="menuBlurb"> {{ getBlockElementsHtml(page.blocks.defaultText) }}</div>
+        {% endfor %}
+        {# End Menu Loop #}
+  
+      </div>
+</div>
+  </section>
 
-{# Start menu loop #}
-{% for menu in getActiveMenus(7) %}
-{# TODO: Convert to Twig Macro and reuse for dailyMenu.html and currentMenu.html templates #}
-
-<p>Date: {{ menu.settings.pitchDate|date('j F Y') }}</p>
-<p>Location: {{ menu.settings.pitchLocation }}</p>
-
-{# Daily Pies #}
-{% if menu.blocks.dailyPies %}
-<section class="collectionDetail element">
-  <h3>Daily Pies</h3>
-  <div class="collectionDetail__content">
-    {{ getBlockElementsHtml(menu.blocks.dailyPies) }}
-  </div>
-</section>
-{% endif %}
-
-{# Sides #}
-{% if menu.blocks.dailySides %}
-<section class="collectionDetail element">
-  <h3>Sides</h3>
-  <div class="collectionDetail__content">
-    {{ getBlockElementsHtml(menu.blocks.dailySides) }}
-  </div>
-</section>
-{% endif %}
-
-{# Sausage Rolls and Other #}
-{% if menu.blocks.dailyRolls %}
-<section class="collectionDetail element">
-  <h3>Sausage Rolls &amp; Other</h3>
-  <div class="collectionDetail__content">
-    {{ getBlockElementsHtml(menu.blocks.dailyRolls) }}
-  </div>
-</section>
-{% endif %}
-
-{# Puds #}
-{% if menu.blocks.dailyPuds %}
-<section class="collectionDetail element">
-  <h3>Sausage Rolls &amp; Other</h3>
-  <div class="collectionDetail__content">
-    {{ getBlockElementsHtml(menu.blocks.dailyPuds) }}
-  </div>
-</section>
-{% endif %}
-
-{# Takeaway Pies #}
-{% if menu.blocks.dailyTakeawayPies %}
-<section class="collectionDetail element">
-  <h3>Takeaway Pies</h3>
-  <div class="collectionDetail__content">
-    {{ getBlockElementsHtml(menu.blocks.dailyTakeawayPies) }}
-  </div>
-</section>
-{% endif %}
-
-<hr>
-{% else %}
-{# If no menus found, show default text element #}
-{{ getBlockElementsHtml(page.blocks.defaultText) }}
-
-{% endfor %}
-{# End Menu Loop #}
 
 {% endblock body %}
