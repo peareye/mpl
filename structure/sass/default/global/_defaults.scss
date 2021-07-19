@@ -93,7 +93,9 @@ section {
   }
 
 }
-
+main {
+  @include padding(null null 5rem null);
+}
 .container {
   @include margin(auto);
   width                : 100%;

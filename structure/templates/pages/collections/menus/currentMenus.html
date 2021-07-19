@@ -13,12 +13,12 @@
   
     <section>
       {# Start menu loop #}
-      {% for menu in getActiveMenus(9) %}
+ 
       {# TODO: Convert to Twig Macro and reuse for dailyMenu.html and currentMenu.html templates #}
   
       <div class="menus-wrapper">
-  
-        <div class="menu-wrapper">
+        {% for menu in getActiveMenus(9) %}
+        <div class="menu-wrapper" id="">
           <h3 class="menu-date span"> {{ menu.settings.pitchDate|date('j F Y') }} at {{ menu.settings.pitchLocation }} </h3>
           {# Daily Pies #}
           {% if menu.blocks.dailyPies %}
@@ -71,9 +71,9 @@
         {% endfor %}
         {# End Menu Loop #}
   
-      </div>
+ 
 </div>
   </section>
 
-
+</div>
 {% endblock body %}

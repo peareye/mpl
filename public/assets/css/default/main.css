@@ -245,6 +245,10 @@ section:first-of-type {
   margin-top: 1rem;
 }
 
+main {
+  padding-bottom: 5rem;
+}
+
 .container {
   margin: auto;
   width: 100%;
