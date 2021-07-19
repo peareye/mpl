@@ -22,10 +22,10 @@ body {
 }
 
 body {
-  background-color: $bg;
+  background-color: $bg-light;
 
   font-family: var(--ff-sans);
-  color      : contrast-switch($bg);
+  color      : contrast-switch($bg-light);
   font-weight: 400;
   line-height: 1.6;
 
@@ -66,12 +66,16 @@ p {
   @include margin(1rem null null null);
 }
 
+.element__title {
+  text-align: center;
+}
+
 .element__title+p {
   @include margin(1rem null null null);
 }
 
 a {
-  color          : contrast-switch($bg);
+  color          : contrast-switch($bg-light);
   text-decoration: none;
 
   transition: all 125ms ease;
@@ -81,44 +85,12 @@ a {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family   : var(--ff-serif);
-  line-height   : 1.1;
-  color         : var(--clr-dark-text);
-  text-transform: capitalize;
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 2.25rem;
-}
-
-h3 {
-  font-size: 2rem;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
-
-h5 {
-  font-size: 1.25rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
 section {
-  @include padding(4rem null);
+  @include margin(1rem null);
+
+  &:first-of-type {
+    @include margin(1rem null null null);
+  }
 
 }
 
@@ -127,7 +99,7 @@ section {
   width                : 100%;
   text-align           : center;
   display              : grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(auto, $max-container-width) minmax(2rem, 1fr);
+  grid-template-columns: minmax(1rem, 1fr) minmax(auto, $max-container-width) minmax(1rem, 1fr);
 
   >* {
     grid-column: 2 / 3;
@@ -141,10 +113,6 @@ section {
 
 .element {
   @include margin(1rem null);
-
-  &-title {
-    @include margin(1rem null null null);
-  }
 }
 
 .text-danger {

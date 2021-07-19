@@ -4,26 +4,33 @@
      max-height: 450px;
 
      img {
-       border-radius: var(--br);
-       box-shadow   : var(--bs-1);
+       @include margin(1rem null null null);
+       box-shadow   : var(--bs);
        max-height   : 450px;
        object-fit   : cover;
      }
    }
+
    &__content {
      @include margin(1rem null null null);
    }
 
  }
- .pageMedia{
-   @include margin(1rem null null null);
-   img{
-    border-radius: var(--br);
-    box-shadow   : var(--bs-1);
-     max-height: 450px;
-     object-fit: cover;
+
+
+ .imageElement__image+.imageElement__content {}
+
+ .twoCols {
+   text-align: left;
+   display   : flex;
+   flex-wrap : wrap;
+   --margin  : 2rem;
+   --modifier: calc(50rem - 100%);
+   margin    : calc(var(--margin) * -1);
+
+   >* {
+     flex-grow : 1;
+     flex-basis: calc(var(--modifier) * 999);
+     margin    : var(--margin);
    }
- }
- .imageElement__image+.imageElement__content{
-   @include margin(2rem null null);
  }

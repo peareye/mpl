@@ -1,5 +1,6 @@
-<footer class="footer">
 
+<footer class="footer">
+    <img class="inlineSVG footerSVG" src="assets/img/svg/wooHooPie.svg" alt="">
     <div class="container">
         <div class="footer1">
 
@@ -26,7 +27,7 @@
 
             <div class="footer-social">
                 <h5>Get Social With Us</h5>
-                <div class="get-social-icons">
+                <div class="get-social-icons"><p></p>
 
                     {% if site.settings.facebookLink %}
                     <a href="{{ site.settings.facebookLink }}"><i class="social-icon fab fa-facebook fa-2x"></i></a>
@@ -60,7 +61,7 @@
 
                 {% endif %}
             </div>
-
+            
         </div>
     </div>
 
@@ -74,6 +75,7 @@
                 site.settings.footerAuthor }}</a>
         </p>
         {% endif %}
-
+       
     </div>
+ 
 </footer>

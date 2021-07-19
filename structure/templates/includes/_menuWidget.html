@@ -1,0 +1,22 @@
+<section id="menuWidget">
+  <div class="container">
+    <h2>MYPIE Truck Locations</h2>
+    <div class="menuWidget">
+      {# Start menu loop #}
+      {% for menu in getActiveMenus(9) %}
+
+      <div class="menuWidget__item">
+        <div class="menu-pitch"> {{ menu.settings.pitchLocation }} </div>
+        <div class="menu-date"> {{ menu.settings.pitchDate|date('j F Y') }}</div>
+        <div class="menu-map"><a href="https://goo.gl/maps/3HuKE8pnsJHy2Tx37" target="_blank">Find Us <i
+              class="fas fa-external-link-alt"></i></a></div>
+              <div class="menu-menu">
+                <a href="/menu">Menu</a>
+              </div>
+
+      </div>
+      {% endfor %}
+      {# End Menu Loop #}
+    </div>
+  </div>
+</section>

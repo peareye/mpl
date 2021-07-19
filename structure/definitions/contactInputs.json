@@ -1,6 +1,18 @@
 [
     {
-        "name": "Favorite Color",
-        "key": "favoriteColor"
+        "name": "Contact Phone No.",
+        "key": "phone"
+    },
+    {
+        "name": "Venue Location",
+        "key": "venue"
+    },
+    {
+        "name": "Venue Date",
+        "key": "date"
+    },
+    {
+        "name": "Number of Guests",
+        "key": "guests"
     }
 ]

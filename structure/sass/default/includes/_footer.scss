@@ -23,9 +23,10 @@
     display              : grid;
     grid-template-columns: 1fr;
     gap                  : 2rem;
+    position             : relative;
 
     @media screen and (min-width: $breakpoint) {
-      grid-template-columns: auto 1fr auto auto;
+      grid-template-columns: 1fr 1fr auto auto;
     }
 
     h5 {
@@ -51,7 +52,7 @@
   .footer2 {
     @include padding(1rem null);
     @include margin(1rem null null);
-    // background     : var(--clr-primary-dark);
+    background     : var(--clr-primary-dark);
     display        : flex;
     flex-flow      : column nowrap;
     justify-content: center;
@@ -59,10 +60,10 @@
 
     p {
       @include margin(0);
-      font-size: .8rem;
+      font-size  : .8rem;
       font-weight: var(--fw-l);
-      
-      color    : contrast-switch($clr-primary);
+
+      color: contrast-switch($clr-primary);
     }
   }
 }

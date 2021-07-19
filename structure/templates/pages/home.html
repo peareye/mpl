@@ -2,6 +2,7 @@
 
 {% block hero %}
 {{ getBlockElementsHtml(page.blocks.heroBlock) }}
+
 {% endblock hero %}
 
 {% block body %}
@@ -9,6 +10,7 @@
   <div class="container">
     {{ getBlockElementsHtml(page.blocks.newsBlock) }}
   </div>
+ 
 </section>
 
 
@@ -24,7 +26,9 @@
 </section>
 
 <section id="reviews" class="reviews">
-  <div class=><h2>What People are Saying</h2></div>
+  <div class=>
+    <h2>What People are Saying</h2>
+  </div>
   <div class="gridContainer">
     {{ getBlockElementsHtml(page.blocks.reviewBlock) }}
   </div>
@@ -35,7 +39,7 @@
   <div class="container">
     <h2>Latest on Instagram</h2>
     <div id="instagram">
-     
+
       <!-- LightWidget WIDGET -->
       <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
       <iframe src="https://cdn.lightwidget.com/widgets/998722a7bf445c73b341b029b9773a5f.html" scrolling="no"

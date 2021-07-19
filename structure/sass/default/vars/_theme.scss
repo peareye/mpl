@@ -3,11 +3,10 @@
   $clr-black      : hsl(345, 6%, 13%);
   $clr-white      : hsl(0, 0%, 100%);
   $clr-blue-light : hsl(177, 44%, 65%);
-  $clr-orange     : rgb(255, 120, 31);
-  $clr-red        : hsl(11, 80%, 49%);
+  $clr-red        : hsl(11, 81%, 49%);
   $clr-green      : hsl(147, 80%, 26%);
-  $clr-blue       : hsl(235, 47%, 21%);
-  $clr-orange     : hsl(40, 94%, 58%);
+  $clr-blue-dark  : hsl(235, 47%, 21%);
+  $clr-orange     : hsl(14, 81%, 62%);
   $clr-pink       : hsl(334, 78%, 87%);
 
   $clr-grey-light : rgb(240, 240, 240);
@@ -20,16 +19,18 @@
   $clr-primary-dark : darken($clr-primary, 10);
   $clr-primary-light: lighten($clr-primary, 50);
   $clr-secondary    : adjust-hue($clr-primary, -20);
-  $clr-accent       : $clr-orange;
-  $clr-dark-text    : $clr-black;
+  $clr-accent       : $clr-red;
+  $clr-dark-text    : $clr-blue-dark;
   $clr-light-text   : $clr-white;
 
 
   // Default Element Styles 
-  $bg            : $clr-white;
+  $bg-light            : $clr-white;
+  $bg-dark: $clr-black;
+  $bg-grey       : $clr-grey-medium;
   $bs            : 0 0 25px rgba($clr-black, .25);
   $bs-1          : 0 10px 25px rgba($clr-black, .25);
-  $bs-2          : 0 20px 40px -15px rgba(black, .25);
+  $bs-2          : 0 20px 40px -15px rgba($clr-black, .25);
   $bsh           : 0px 0px 10px 2px rgba($clr-black, .15); // box shadow hover
   $br            : 7px;
   $ls            : 2px;
