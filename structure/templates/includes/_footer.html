@@ -1,7 +1,7 @@
-
 <footer class="footer">
     <img class="inlineSVG footerSVG" src="assets/img/svg/wooHooPie.svg" alt="">
-    <div class="container">
+
+    <div class="container-wide">
         <div class="footer1">
 
             <div class="footer-nav">
@@ -27,7 +27,8 @@
 
             <div class="footer-social">
                 <h5>Get Social With Us</h5>
-                <div class="get-social-icons"><p></p>
+                <div class="get-social-icons">
+                    <p></p>
 
                     {% if site.settings.facebookLink %}
                     <a href="{{ site.settings.facebookLink }}"><i class="social-icon fab fa-facebook fa-2x"></i></a>
@@ -61,21 +62,24 @@
 
                 {% endif %}
             </div>
-            
+
         </div>
     </div>
 
-    <div class="footer2">
 
-        <p>{{ site.settings.siteName|default('Piton<span>CMS</span>') }} &copy; 2018 - {{ "now"|date('Y') }}</p>
-        {% if site.settings.footerAuthor %}
-        <p>Built with
-            <a href="http://pitoncms.com" target="_blank">PitonCMS </a> by <a
-                href="{{ site.settings.footerAuthorURL }} " target="_blank">{{
-                site.settings.footerAuthor }}</a>
-        </p>
-        {% endif %}
-       
+   
+        <div class="footer2">
+
+            <p>{{ site.settings.siteName|default('Piton<span>CMS</span>') }} &copy; 2018 - {{ "now"|date('Y') }}</p>
+            {% if site.settings.footerAuthor %}
+            <p>Built with
+                <a href="http://pitoncms.com" target="_blank">PitonCMS </a> by <a
+                    href="{{ site.settings.footerAuthorURL }} " target="_blank">{{
+                    site.settings.footerAuthor }}</a>
+            </p>
+            {% endif %}
+
+     
     </div>
- 
+
 </footer>

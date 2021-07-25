@@ -1,7 +1,9 @@
+
+
 header {
   @include padding(1em null);
   background: $clr-primary;
-  height    : calc(#{$nav-height} + 4em);
+  height: calc(#{$nav-height} + 4em);
   width: 100%;
 
   position: relative;
@@ -10,59 +12,24 @@ header {
     text-align: center;
     @include padding(null 4rem);
   }
-
   img {
-    height : calc(#{$nav-height} + 2em);
+    height: calc(#{$nav-height} + 2em);
     display: inline-block;
-  }
-  .controls {
-    position: absolute;
-    top     : 1em;
-    right   : 1em;
-  
-    display              : grid;
-    grid-template-columns: 1fr 1fr;
-    gap                  : 1em;
-  
-    a {
-      @include padding(.25em .5em);
-      background     : darken($clr-primary, 20%);
-      color          : $clr-light-text;
-      border-radius  : 7px;
-      border         : solid 1px hsl(0, 0%, 95%);
-      font-weight    : $fw-l;
-      text-decoration: none;
-  
-      transition: all 125ms ease-in-out;
-  
-      &:hover {
-        background   : $clr-accent;
-        color        : $clr-dark-text;
-        border-radius: 7px;
-        border       : solid 1px $clr-dark-text;
-      }
-    }
   }
 }
 
-
-
 .navbar {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: $fw-l;
-  color      : $clr-dark-text;
-  background : $bg-light;
-  // min-width  : 30%;
-  width  : 50%;
-  min-height: 100%;
-  
+  font-weight: 300;
+  background: $bg-light;
+  min-width: 33%;
+  min-height: 100vh;
 
-  box-shadow: 2px 0 12px 5px rgba($clr-dark-text, .15);
+  box-shadow: 2px 0 12px 5px rgba($bg-dark, .15);
 
   position: absolute;
-  top     : 0;
-  left    : 0;
-  z-index : 102;
+  top: 0;
+  left: 0;
+  z-index: 102;
 
   transform : translateX(-105%);
   transition: all 125ms ease;
@@ -75,17 +42,16 @@ header {
   li {
     border-bottom: solid 1px rgb(190, 190, 190);
   }
-
   a {
 
     text-decoration: none;
     display        : block;
-    color          : $clr-dark-text;
-    @include padding(1rem);
+    color          : $text-dark;
+    @include padding(.5rem 1rem);
 
     &:hover {
       background: $clr-accent;
-      color: $clr-light-text;
+      color: $text-light;
     }
   }
 }
@@ -93,4 +59,3 @@ header {
 .toggle:checked~.navbar {
   transform: translateX(0);
 }
-

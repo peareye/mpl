@@ -1,23 +1,22 @@
-// Font family
-@import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,700");
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
 
 @font-face {
   font-family: 'franchise_freebold';
-  src: url('../../fonts/franchise-free-bold-webfont.woff2') format('woff2'),
+  src        : url('../../fonts/franchise-free-bold-webfont.woff2') format('woff2'),
     url('../../fonts/franchise-free-bold-webfont.woff') format('woff');
   font-weight: normal;
-  font-style: normal;
+  font-style : normal;
 }
 
 // These values are the minimum and maximum viewport sizes to apply the font scaling
-$min_width: 576;
-$max_width: 992;
-// These values represent the range of fon-tsize to apply
+$min_width: 768;
+$max_width: 991;
+// These values represent the range of font-size to apply
 // These values effect the base font-size, headings and other elements will scale proportionally
-$min_font: 16;
-$max_font: 18;
+$min_font : 14;
+$max_font : 18;
+
+// Looking for a mixin? Try: https://codepen.io/MadeByMike/pen/vNrvdZ
 
 :root {
   font-size: #{$min_font}px;
@@ -43,10 +42,10 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
   line-height: 1.45;
-  color: $clr-dark-text;
+  color      : black;
 }
 
 p {
@@ -59,39 +58,24 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "franchise_freebold", sans-serif;
-  color: $clr-dark-text;
-  font-weight: inherit;
-  line-height: 1.2;
+  font-family   : "franchise_freebold", sans-serif;
+  color         : black;
+  font-weight   : inherit;
+  line-height   : 1.2;
   letter-spacing: .1em;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 3em;
-}
+h1 {}
 
-h2 {
-  font-size: 2.5em;
-}
+h2 {}
 
-h3 {
-  font-size: 2em;
-}
+h3 {}
 
-h4 {
-  font-size: 1.414em;
-}
+h4 {}
 
-h5 {
-  font-size: 1em;
-}
+h5 {}
 
-h6 {
-  font-size: .8em;
-}
+h6 {}
 
 small,
-.font_small {
-  font-size: 0.707em;
-}
+.font_small {}

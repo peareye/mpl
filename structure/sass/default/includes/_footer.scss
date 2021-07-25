@@ -1,58 +1,54 @@
 .footer {
+  background:$clr-primary;
   @include margin(auto null null null);
   @include padding(1rem null null null);
-  background: var(--clr-primary);
-  color     : contrast-switch($clr-primary);
+  text-align: center;
+
+  position: relative;
   font-size : .9rem;
 
-  a {
-    color     : contrast-switch($clr-primary);
-    transition: all 125ms ease;
+  @media screen and (min-width: $breakpoint){
+    text-align: left;
+  }
+}
 
-    &:hover {
-      color: var(--clr-accent);
+.footer1 {
+  @include padding(2rem null);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  position: relative;
+
+  @media screen and (min-width: $breakpoint) {
+    grid-template-columns: 1fr 1fr auto auto;
+  }
+  h5 {
+    @include margin(null null .5rem null);
+    font-size  : 1.2rem;
+  
+  }
+  .footer-social {
+    .social-icon {
+      @include padding(.25rem .5rem);
     }
   }
-
+  .footer-address {
+    *+* {
+      @include margin(1rem null null null);
+    }
+  }
   ul {
     list-style: none;
   }
 
-  .footer1 {
-    @include padding(2rem null);
-    display              : grid;
-    grid-template-columns: 1fr;
-    gap                  : 2rem;
-    position             : relative;
-
-    @media screen and (min-width: $breakpoint) {
-      grid-template-columns: 1fr 1fr auto auto;
-    }
-
-    h5 {
-      @include margin(null null 1rem null);
-      font-size  : 1.2rem;
-      text-shadow: var(--ts);
-    }
-
-    .footer-social {
-      .social-icon {
-        @include padding(.25rem .5rem);
-      }
-    }
-
-    .footer-address {
-      *+* {
-        @include margin(1rem null null null);
-      }
-    }
-
-  }
+}
 
   .footer2 {
     @include padding(1rem null);
     @include margin(1rem null null);
-    background     : var(--clr-primary-dark);
+    background     : $clr-primary-dark;
     display        : flex;
     flex-flow      : column nowrap;
     justify-content: center;
@@ -61,9 +57,6 @@
     p {
       @include margin(0);
       font-size  : .8rem;
-      font-weight: var(--fw-l);
-
-      color: contrast-switch($clr-primary);
+      font-weight: $fw-l;
     }
   }
-}

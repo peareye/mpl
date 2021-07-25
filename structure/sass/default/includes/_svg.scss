@@ -1,9 +1,22 @@
-.chicken1SVG {
+.inlineSVG {
+  display: inline;
+  width: auto;
+}
+
+.headerSVG {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  height: clamp(4em, 20vh, 6em);
+}
+
+.navbarSVG {
   position: absolute;
   right   : .5em;
   bottom  : 0;
   width: clamp(2rem, 10vw, 5rem);
 }
+
 .footerSVG {
   position: fixed;
   left: 0;
@@ -11,15 +24,4 @@
   height: clamp(9rem, 10vh, 20rem);
   z-index: 1000;
 
-}
-
-.headerSVG {
-position: absolute;
-right: 0;
-bottom: -5px;
-height: clamp(4rem, 20vw, 8rem);
-}
-.inlineSVG {
-  display: inline;
-  width: auto;
 }

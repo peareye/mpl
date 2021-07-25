@@ -1,0 +1,85 @@
+/* Default Styles - Global */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  @include margin(0);
+  @include padding(0);
+}
+
+html {
+  scroll-behavior        : smooth;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  width     : 100vw;
+  height    : 100vh;
+  min-height: 100vh;
+}
+
+body {
+  background: white;
+  color: black;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+p{
+  @include margin(1rem null null null);
+}
+
+a {
+color: $clr-accent;
+text-decoration: none;
+
+transition: all 125ms ease;
+
+&:hover {
+  color: darken($clr-accent, 30%);
+}
+}
+
+section {
+  width: 100%;
+  background: pink;
+}
+
+.container, .container-wide {
+  @include margin(auto);
+  width: 100%;
+  
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1200px) minmax(1rem, 1fr);
+
+  >* {
+    grid-column: 2/3;
+  }
+}
+
+.container {
+  grid-template-columns: minmax(1rem, 1fr) minmax(auto, 45ch) minmax(1rem, 1fr);
+}
+
+.text-required {
+  color: $clr-red;
+}
+
+.span {
+  grid-column: 1 / -1 !important;
+}

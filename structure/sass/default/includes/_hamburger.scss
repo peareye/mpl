@@ -1,7 +1,14 @@
+// Hide checkboxes for toggles and remove from the document flow
+.toggle {
+  position: absolute;
+  top     : -999px !important;
+  left    : -9999px !important;
+}
+
 // Toggle Hamburger
 .toggle-label {
-  height: 3rem;
-  width : 3rem;
+  height: 3.5rem;
+  width : 4rem;
   cursor: pointer;
 
   display        : flex;
@@ -12,16 +19,15 @@
   top     : 0;
   left    : 0;
   z-index : 100;
-
-
+ 
   span,
   span::before,
   span::after {
-    width        : 2em;
-    height       : 3px;
-    border-radius: 4px;
-    background   : $clr-dark-text;
-    ;
+    width        : 2.5em;
+    height       : 5px;
+    border-radius: $br;
+    background   : $bg-dark;
+   
     position: relative;
   }
 
@@ -43,33 +49,20 @@
 
 }
 
-// Hamburger
-
-// Hide checkboxes for toggles and remove from the document flow
-.toggle {
-  position: absolute;
-  top     : -999px !important;
-  left    : -9999px !important;
-}
-
 // Nav Toggle Label & Hamburger icon w/animation
 
 
 // Nav Toggle Animation
 .toggle:checked~.toggle-label {
-  filter: drop-shadow(0 2px 2px rgba($clr-blue-dark, .15));
+  filter: drop-shadow(0 2px 2px rgba($bg-dark, .15));
   background: rgba($clr-primary,.5);
-  left: 50%;
+  left: 33%;
 
 }
 
 .toggle:checked~.toggle-label span {
   background: transparent;
 }
-
-// .nav.scroll * .nav-toggle:checked~.nav-toggle-label span {
-//   background: transparent !important;
-// }
 
 .toggle:checked~.toggle-label span::before {
   transform: rotate(135deg);
