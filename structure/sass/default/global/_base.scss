@@ -22,50 +22,134 @@ body {
 }
 
 body {
-  background: white;
-  color: black;
+  background : $bg-light;
+  color      : $text-dark;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
   line-height: 1.6;
 
-  display: flex;
+  display  : flex;
   flex-flow: column nowrap;
 
   overflow-x: hidden;
 }
 
-img {
-  width: 100%;
-  height: auto;
-  display: block;
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color      : $text-dark;
 }
 
-p{
+p {
+  margin-bottom: 1.2em;
   @include margin(1rem null null null);
 }
 
-a {
-color: $clr-accent;
-text-decoration: none;
-
-transition: all 125ms ease;
-
-&:hover {
-  color: darken($clr-accent, 30%);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family   : "franchise_freebold", sans-serif;
+  color         : $text-dark;
+  font-weight   : inherit;
+  line-height   : 1.2;
+  letter-spacing: .1em;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family   : "franchise_freebold", sans-serif;
+  color         : $text-dark;
+  font-weight   : inherit;
+  line-height   : 1.2;
+  letter-spacing: .1em;
+}
+
+h1 {
+  margin-top: 0;
+  font-size : 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.414em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: .8em;
+}
+
+small,
+.font_small {
+  font-size: 0.707em;
+}
+
+img {
+  width  : 100%;
+  height : auto;
+  display: block;
+}
+
+
+a {
+  color          : $clr-accent;
+  text-decoration: none;
+
+  transition: all 125ms ease;
+
+  &:hover {
+    color: darken($clr-accent, 30%);
+  }
 }
 
 section {
+  @include padding(2rem null 4rem);
   width: 100%;
-  background: pink;
+
+  &:first-of-type {
+    @include padding(2rem null 4rem null);
+  }
+
+   &:nth-child(even) {
+    background: $clr-grey-light;
+    &:last-of-type {
+      @include margin(null null 0 null);
+    }
+  }
+  &:last-of-type {
+    @include margin(null null 2rem null);
+  }
 }
 
-.container, .container-wide {
+.heroWidget+section {
+  background: $clr-grey-light !important;
+}
+
+.container,
+.container-wide {
   @include margin(auto);
   width: 100%;
-  
-  display: grid;
-  grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1200px) minmax(1rem, 1fr);
+
+  display              : grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1200px) minmax(2rem, 1fr);
 
   >* {
     grid-column: 2/3;
@@ -73,7 +157,7 @@ section {
 }
 
 .container {
-  grid-template-columns: minmax(1rem, 1fr) minmax(auto, 45ch) minmax(1rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(auto, 45ch) minmax(2rem, 1fr);
 }
 
 .text-required {
@@ -82,4 +166,80 @@ section {
 
 .span {
   grid-column: 1 / -1 !important;
+}
+
+.element__title {
+  text-align: center;
+}
+
+// Buttons
+.btn {
+  font-size : inherit;
+  display   : inline-block;
+  background: $clr-primary;
+  @include padding(.5em 1em);
+  border         : solid 1px $bg-grey;
+  border-radius  : $br;
+  color          : $text-light;
+  z-index        : 101;
+  box-shadow     : none;
+  transition     : all ease-in-out 125ms;
+  text-decoration: none;
+
+  &:hover {
+    color     : $clr-accent;
+    background: $clr-primary-dark;
+    cursor    : pointer;
+    box-shadow: $bs;
+  }
+}
+
+.btn-cta {
+  font-size      : 1.25rem;
+  color          : $text-dark;
+  font-weight    : 500;
+  text-decoration: none;
+  display        : inline-flex;
+  align-items    : center;
+  color          : $text-light;
+  border-radius  : 8px;
+  box-shadow     : 1px 3px 5px rgba($bg-dark, 0.3);
+  padding        : 0.25em 0.75em;
+  @include margin(2rem null 1rem);
+  min-width  : 10ch;
+  min-height : 2.5rem;
+  text-align : center;
+  line-height: 1.1;
+  transition : 220ms all ease-in-out;
+
+  &:hover,
+  &:active {
+    background-color: scale-color($clr-primary, $lightness: 20%);
+  }
+
+  &:focus {
+    outline-style: dashed;
+    outline-color: transparent;
+    box-shadow   : 0 0 0 4px scale-color($clr-primary, $lightness: 50%);
+  }
+}
+
+// Button for Collection Summary Element
+.btn-link {
+  color          : $clr-grey-dark;
+  text-align     : right;
+  font-size      : .9rem;
+  font-weight    : 300;
+  text-decoration: none;
+
+  font-style: italic;
+
+}
+
+// Instagram Feed Styles
+
+#insta-feed {
+  .container-wide{
+    @include margin(2rem null null null);
+  }
 }

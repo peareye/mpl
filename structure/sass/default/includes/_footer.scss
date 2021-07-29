@@ -1,7 +1,6 @@
 .footer {
   background:$clr-primary;
   @include margin(auto null null null);
-  @include padding(1rem null null null);
   text-align: center;
 
   position: relative;
@@ -13,7 +12,7 @@
 }
 
 .footer1 {
-  @include padding(2rem null);
+  @include padding(1rem null);
 
   display: grid;
   grid-template-columns: 1fr;

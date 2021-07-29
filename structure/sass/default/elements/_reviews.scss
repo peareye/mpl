@@ -1,0 +1,30 @@
+.reviewGrid {
+
+  @include margin(2rem null null null);
+
+
+  display           : flex;
+  flex-flow         : row wrap;
+  // text-align: center;
+  justify-content: center;
+
+  .review {
+    @include padding(null 3rem 2rem);
+    text-align: center;
+
+    flex      : 1;
+    flex-basis: 350px;
+    max-width : 350px;
+
+    &__content {
+      font-weight: $fw-l;
+    }
+
+    &__author {
+      font-weight   : $fw-b;
+      text-transform: uppercase;
+      color         : $clr-green;
+    }
+
+  }
+}

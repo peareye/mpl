@@ -20,8 +20,11 @@ $clr-accent : $clr-red;
 
 $bg-light  : $clr-white;
 $bg-dark   : $clr-black;
+$bg-grey: $clr-grey-medium;
 $text-light: $clr-white;
 $text-dark : $clr-black;
+$ls: 2px;
+$bs: 2px 2px 15px rgba($bg-dark, .15);
 
 $br: 4px; // border-radius
 $nav-height: 60px; //navigation height
@@ -32,7 +35,7 @@ $nav-height: 60px; //navigation height
   // Media Query Breakpoints
   $breakpoint: 768px;
 
-  $fw-l: 400;
+  $fw-l: 300;
   $fw-n: 400;
   $fw-m: 600;
   $fw-b: 700;

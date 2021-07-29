@@ -1,18 +1,24 @@
 {# Image Element #}
 
-
 <section>
-  <div class="container">
-    <div class="imageElement twoCols">
-  
+  <h2 class="element__title">{{ element.title }}</h2>
+  <div class="container-wide">
+
+    <div class="imageElement">
+
       <div class="imageElement__image">
-        {{ getMediaSrcSet(element.media.filename, element.media.caption, {'sizes': '(min-width: 1020px) 926px, 93.43vw'})
+        {{ getMediaSrcSet(element.media.filename, element.media.caption, {'sizes': '(min-width: 1020px) 926px,
+        93.43vw'})
         }}
       </div>
-  
+
       <div class="imageElement__content">
-        <h2 class="element__title">{{ element.title }}</h2>
+       
         {{ element.content }}
       </div>
+
     </div>
-</sectio>
+
+  </div>
+
+</section>

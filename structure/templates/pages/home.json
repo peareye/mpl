@@ -9,7 +9,7 @@
       "key": "heroBlock",
       "description": "Large full width image",
       "elementTypeOptions": [
-        "hero/hero"
+        "hero/heroWidget"
       ],
       "elementCountLimit": 1
     },
