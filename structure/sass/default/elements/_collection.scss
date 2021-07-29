@@ -1,0 +1,50 @@
+// Friends of MyPie collection.
+#friendsCards {
+  .cards {
+    display              : grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows       : 1fr;
+
+    gap       : 1rem;
+    list-style: none;
+  }
+
+  .card {
+    height    : 100%;
+    background: $bg-light;
+    @include padding(1rem);
+    border-radius: $br;
+    box-shadow   : $bs;
+
+    display  : flex;
+    flex-flow: column nowrap;
+
+
+    &__image {
+
+      max-height: 250px;
+      overflow  : hidden;
+  
+      border    : solid 2px $bg-grey;
+      img{
+        object-fit: contain;
+      }
+    }
+
+    &__text {
+      @include margin(auto null null null);
+      @include padding(2rem null null null);
+    }
+    &__title {
+      @include padding(2rem null null null);
+      // @include margin(auto null null null);
+    }
+  }
+}
+#friendsDetail{
+  .actionBlock {
+    @include padding(2rem null null);
+    display: flex;
+    justify-content: space-around;
+  }
+}

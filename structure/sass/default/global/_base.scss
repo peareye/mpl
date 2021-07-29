@@ -128,12 +128,14 @@ section {
     @include padding(2rem null 4rem null);
   }
 
-   &:nth-child(even) {
+  &:nth-child(even) {
     background: $clr-grey-light;
+
     &:last-of-type {
       @include margin(null null 0 null);
     }
   }
+
   &:last-of-type {
     @include margin(null null 2rem null);
   }
@@ -239,7 +241,31 @@ section {
 // Instagram Feed Styles
 
 #insta-feed {
-  .container-wide{
+  .container-wide {
     @include margin(2rem null null null);
+  }
+}
+
+figure {
+  border-radius: var(--br);
+  @include padding(2rem null 1rem);
+
+  img {
+    width: auto;
+    @include margin(auto);
+    height       : auto;
+    max-height   : 450px;
+    border-radius: var(--br);
+    box-shadow   : var(--bs);
+    object-fit   : contain;
+  }
+
+  figcaption {
+    color      : var(--clr-dark);
+    font-size  : .8rem;
+    font-style : italic;
+    font-weight: 300;
+    margin-top : .25rem !important;
+    text-align : center;
   }
 }
