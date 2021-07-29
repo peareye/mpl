@@ -258,12 +258,11 @@ figure {
 }
 figure img {
   width: auto;
-  margin: auto;
+  margin: 0 auto;
   height: auto;
-  max-height: 450px;
+  max-height: 350px;
   border-radius: var(--br);
   box-shadow: var(--bs);
-  object-fit: contain;
 }
 figure figcaption {
   color: var(--clr-dark);
@@ -514,7 +513,7 @@ header img {
 
 #friendsCards .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: 1fr;
   gap: 1rem;
   list-style: none;
@@ -548,6 +547,13 @@ header img {
   padding-top: 2rem;
   display: flex;
   justify-content: space-around;
+}
+#friendsDetail figure {
+  background: #cccccc;
+  padding: 2rem 0;
+}
+#friendsDetail .element__title {
+  margin-top: 2rem;
 }
 
 .contact-form {

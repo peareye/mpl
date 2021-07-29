@@ -252,12 +252,12 @@ figure {
 
   img {
     width: auto;
-    @include margin(auto);
+    @include margin(0 auto);
     height       : auto;
-    max-height   : 450px;
+    max-height   : 350px;
     border-radius: var(--br);
     box-shadow   : var(--bs);
-    object-fit   : contain;
+    // object-fit   : contain;
   }
 
   figcaption {
