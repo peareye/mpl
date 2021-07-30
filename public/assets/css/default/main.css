@@ -471,9 +471,20 @@ header img {
 }
 
 .hero {
-  --hero-height: 65vh;
+  --hero-height: 80vh;
   height: min(var(--hero-height), 1080px);
   position: relative;
+  z-index: 100;
+}
+.hero__image {
+  width: 100vw;
+  height: min(var(--hero-height), 1080px);
+  position: relative;
+}
+.hero__image img {
+  width: 100vw;
+  height: min(var(--hero-height), 1080px);
+  object-fit: cover;
   z-index: 100;
 }
 .hero__overlay {
@@ -486,29 +497,64 @@ header img {
 }
 .hero__content {
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: white;
   padding: 1rem 2rem;
   border-radius: 4px;
-  width: 60ch;
-  max-width: 50%;
+  width: 100%;
+  max-width: 40ch;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   z-index: 102;
+  transform: translate(-50%, -50%);
 }
 .hero__content-title {
   color: white;
 }
-.hero__image {
-  width: 100vw;
-  height: min(var(--hero-height), 1080px);
+
+.menuWidget {
+  padding: 1rem;
+  width: 100%;
+  background: white;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 102;
+  display: flex;
+  gap: 2rem;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
-.hero__image img {
-  width: 100vw;
-  height: min(var(--hero-height), 1080px);
-  object-fit: cover;
-  z-index: 100;
+@media screen and (min-width: 768px) {
+  .menuWidget {
+    width: 25vw;
+    bottom: 0;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+  }
+}
+.menuWidget .actionBlock {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.menuWidget .actionBlock i {
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  .menuWidget + .hero__image {
+    --hero-height: 65vh;
+    width: 75vw;
+  }
+  .menuWidget + .hero__image img {
+    width: 75vw;
+    object-fit: cover;
+  }
 }
 
 #friendsCards .cards {
