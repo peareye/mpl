@@ -1,0 +1,235 @@
+{# shop Element #}
+
+<section>
+
+  <h2 class="element__title">{{ element.title }}</h2>
+  <div class="container-wide">
+
+    <div class="shopElement">
+
+      <div class="shopElement__content">
+       
+        <div class="shopify-collection" id='collection-component-{{ element.settings.shopify }}'></div>
+        <script type="text/javascript">
+          /*<![CDATA[*/
+          (function () {
+            var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+            if (window.ShopifyBuy) {
+              if (window.ShopifyBuy.UI) {
+                ShopifyBuyInit();
+              } else {
+                loadScript();
+              }
+            } else {
+              loadScript();
+            }
+        
+            function loadScript() {
+              var script = document.createElement('script');
+              script.async = true;
+              script.src = scriptURL;
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
+                script);
+              script.onload = ShopifyBuyInit;
+            }
+        
+            function ShopifyBuyInit() {
+              var client = ShopifyBuy.buildClient({
+                domain: 'mypie-london.myshopify.com',
+                storefrontAccessToken: '4d2f81fe1889d5340cdb9ba1855c369a',
+              });
+              ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('collection', {
+                  id: '{{ item.content }}',
+                  node: document.getElementById('collection-component-{{ item.content }}'),
+                  moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
+                  options: {
+                    "product": {
+                      "styles": {
+                        "product": {
+                          "display": "flex",
+                          "flex-flow": "column nowrap",
+                          "flex": "1",
+                          "justify-content": "flex-start !important",
+                          "align-items": "center !important",
+                          "background-color": "#f9f9f9",
+                          "padding-bottom": "1rem",
+                          "margin": "0 !important",
+                          "box-shadow": "0 0 15px rgba(0,0,0,.15)",
+                          // product styles here
+        
+                          "min-width": "100% !important",
+                          "@media (min-width: 601px)": {
+        
+        
+                          },
+                          "imgWrapper": {
+                            // image wrapper styles here
+                            "width": "100%",
+        
+        
+                          },
+                          "img": {
+                            // product image styles here
+                            "width": "100%",
+                          },
+        
+                        },
+                        "title": {
+        
+                          "flex": "1",
+                          "padding": "0 10px"
+        
+                        },
+                        "price": {
+        
+                        },
+                        "button": {
+                          "margin-top": "auto",
+                          "padding": "10px",
+                          ":hover": {
+                            "background": "#d51920"
+                          },
+                          "background": "#ed1c24",
+                          ":focus": {
+                            "background": "#d51920"
+                          },
+                          "border-radius": "7px"
+                        },
+                        "quantityInput": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px"
+                        }
+                      },
+                      "buttonDestination": "modal",
+                      "contents": {
+                        "options": false
+                      },
+                      "text": {
+                        "button": "View product"
+                      }
+                    },
+                    "productSet": {
+                      "styles": {
+                        "products": {
+                          // product collection cards style here
+                          "margin": "0 !important",
+                          "margin-bottom": "4rem !important",
+                          "max-width": "100% !important",
+                          "display": "grid",
+                          "grid-template-columns": "repeat(auto-fill, minmax(160px, 1fr))",
+                          "column-gap": "1rem",
+                          "row-gap": "2rem",
+                          "@media (min-width: 576px)": {
+                            "grid-template-columns": "repeat(auto-fill, minmax(210px, 1fr)) !important",
+                          },
+                          "@media (min-width: 601px)": {
+                            "grid-template-columns": "repeat(auto-fill, minmax(240px, 1fr)) !important",
+                            "width": "100% !important",
+                          },
+                        }
+                      }
+                    },
+                    "modalProduct": {
+                      "contents": {
+                        "img": false,
+                        "imgWithCarousel": true,
+                        "button": false,
+                        "buttonWithQuantity": true
+                      },
+                      "styles": {
+                        "product": {
+                          "@media (min-width: 601px)": {
+                            "max-width": "100%",
+                            "margin-left": "0px",
+                            "margin-bottom": "0px"
+                          }
+                        },
+                        "button": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px",
+                          ":hover": {
+                            "background": "#d51920"
+                          },
+                          "background": "#ed1c24",
+                          ":focus": {
+                            "background": "#d51920"
+                          },
+                          "border-radius": "7px"
+                        },
+                        "quantityInput": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px"
+                        }
+                      },
+                      "text": {
+                        "button": "Add to cart"
+                      }
+                    },
+                    "cart": {
+                      "styles": {
+                        "button": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px",
+                          ":hover": {
+                            "background": "#d51920"
+                          },
+                          "background": "#ed1c24",
+                          ":focus": {
+                            "background": "#d51920"
+                          },
+                          "border-radius": "7px"
+                        }
+                      },
+                      "text": {
+                        "total": "Subtotal",
+                        "button": "Checkout"
+                      },
+                      "contents": {
+                        "note": true
+                      }
+                    },
+                    "toggle": {
+                      "styles": {
+                        "toggle": {
+                          "background": "#ed1c24",
+                          ":hover": {
+                            "background": "#d51920"
+                          },
+                          ":focus": {
+                            "background": "#d51920"
+                          }
+                        },
+                        "count": {
+                          "font-size": "16px"
+                        }
+                      }
+                    }
+                  },
+                });
+              });
+            }
+          })();
+          /*]]>*/
+        </script>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+

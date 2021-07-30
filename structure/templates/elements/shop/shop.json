@@ -1,0 +1,15 @@
+{
+  "elementName": "Shop",
+  "elementDescription": "Shop Element",
+  "showContentTextarea": false,
+  "settings": [
+    {
+        "category": "element",
+        "label": "Shopify Code",
+        "key": "shopify",
+        "value": "",
+        "inputType": "number",
+        "help": "Paste the code from the Shopify collection you ware wanting to create."
+    }
+]
+}

@@ -42,43 +42,26 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  min-height: 100vh;
 }
 
 body {
+  height: 100%;
   background: white;
   color: #231f20;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
   line-height: 1.6;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #231f20;
   display: flex;
   flex-flow: column nowrap;
   overflow-x: hidden;
 }
 
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #231f20;
-}
-
 p {
-  margin-bottom: 1.2em;
   margin-top: 1rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "franchise_freebold", sans-serif;
-  color: #231f20;
-  font-weight: inherit;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
 }
 
 h1,
@@ -335,13 +318,42 @@ figure figcaption {
   top: 0px;
 }
 
+.inlineSVG {
+  display: inline;
+  width: auto;
+}
+
+.headerSVG {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  height: clamp(4em, 20vh, 6em);
+}
+
+.navbarSVG {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0;
+  width: clamp(2rem, 10vw, 5rem);
+}
+
+.footerSVG {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: clamp(9rem, 10vh, 20rem);
+  z-index: 1000;
+}
+
 header {
   padding-top: 1em;
   padding-bottom: 1em;
   background: #40a5a0;
   height: calc(60px + 4em);
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
 }
 header .logo {
   text-align: center;
@@ -388,31 +400,31 @@ header img {
   transform: translateX(0);
 }
 
-.inlineSVG {
-  display: inline;
-  width: auto;
+header {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 60px;
+  width: 100%;
+}
+header .logo {
+  text-align: center;
+  padding: 0.5rem 4rem;
+}
+header img {
+  height: calc(60px - 1rem);
+  display: inline-block;
+}
+
+.toggle-label {
+  height: 60px;
+  margin: 0;
 }
 
 .headerSVG {
   position: absolute;
   right: 0;
   bottom: -5px;
-  height: clamp(4em, 20vh, 6em);
-}
-
-.navbarSVG {
-  position: absolute;
-  right: 0.5em;
-  bottom: 0;
-  width: clamp(2rem, 10vw, 5rem);
-}
-
-.footerSVG {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: clamp(9rem, 10vh, 20rem);
-  z-index: 1000;
+  height: calc(60px - 0rem);
 }
 
 .footer {
