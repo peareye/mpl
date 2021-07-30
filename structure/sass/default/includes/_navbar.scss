@@ -2,7 +2,7 @@
 
 header {
   @include padding(1em null);
-  background: $clr-primary;
+  background: $clr-primary-dark;
   height: calc(#{$nav-height} + 4em);
   width: 100%;
 
