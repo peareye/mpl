@@ -45,7 +45,8 @@ body {
 }
 
 body {
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
   background: white;
   color: #231f20;
   font-family: "Noto Sans JP", sans-serif;

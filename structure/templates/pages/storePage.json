@@ -1,0 +1,17 @@
+{
+    "templateName": "Store",
+    "templateDescription": "Store Page with sidebar navigation.",
+    "showFeaturedImage": false,
+    "templateType": "page",
+    "blocks": [
+        {
+            "name": "Content",
+            "key": "contentBlock",
+            "description": "Content blocks for Store page layout",
+            "elementTypeOptions": [
+               "text/text", "shop/shop"
+              ]
+
+        }
+    ]
+}

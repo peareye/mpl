@@ -1,15 +1,11 @@
 {# shop Element #}
 
 <section>
-
-  <h2 class="element__title">{{ element.title }}</h2>
   <div class="container-wide">
-
     <div class="shopElement">
-
       <div class="shopElement__content">
-       
-        <div class="shopify-collection" id='collection-component-{{ element.settings.shopify }}'></div>
+        <h2 class="element__title">{{ element.title }}</h2>
+        <div class="shopify-collection" id='collection-component-{{element.settings.shopify}}'></div>
         <script type="text/javascript">
           /*<![CDATA[*/
           (function () {
@@ -23,7 +19,7 @@
             } else {
               loadScript();
             }
-        
+
             function loadScript() {
               var script = document.createElement('script');
               script.async = true;
@@ -32,7 +28,7 @@
                 script);
               script.onload = ShopifyBuyInit;
             }
-        
+
             function ShopifyBuyInit() {
               var client = ShopifyBuy.buildClient({
                 domain: 'mypie-london.myshopify.com',
@@ -40,8 +36,8 @@
               });
               ShopifyBuy.UI.onReady(client).then(function (ui) {
                 ui.createComponent('collection', {
-                  id: '{{ item.content }}',
-                  node: document.getElementById('collection-component-{{ item.content }}'),
+                  id: '{{element.settings.shopify}}',
+                  node: document.getElementById('collection-component-{{element.settings.shopify}}'),
                   moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
                   options: {
                     "product": {
@@ -57,32 +53,32 @@
                           "margin": "0 !important",
                           "box-shadow": "0 0 15px rgba(0,0,0,.15)",
                           // product styles here
-        
+
                           "min-width": "100% !important",
                           "@media (min-width: 601px)": {
-        
-        
+
+
                           },
                           "imgWrapper": {
                             // image wrapper styles here
                             "width": "100%",
-        
-        
+
+
                           },
                           "img": {
                             // product image styles here
                             "width": "100%",
                           },
-        
+
                         },
                         "title": {
-        
+
                           "flex": "1",
                           "padding": "0 10px"
-        
+
                         },
                         "price": {
-        
+
                         },
                         "button": {
                           "margin-top": "auto",
@@ -216,6 +212,7 @@
           })();
           /*]]>*/
         </script>
+    
       </div>
 
     </div>
@@ -223,6 +220,7 @@
   </div>
 
 </section>
+
 
 
 
