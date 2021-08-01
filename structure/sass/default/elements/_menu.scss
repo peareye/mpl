@@ -2,7 +2,7 @@
     Menu Grid 
 */
  .menus-wrapper {
-   @media screen and (min-width: $breakpoint) {
+   @media screen and (min-width:  $breakpoint-small) {
      display              : grid;
      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 
@@ -19,7 +19,7 @@
    gap               : 1em;
    grid-template-rows: auto;
 
-   @media screen and (min-width: $breakpoint) {
+   @media screen and (min-width:  $breakpoint-small) {
      grid-template-columns: 1fr 1fr;
    }
 
@@ -34,14 +34,14 @@
      @include margin(null null 0);
    }
 
-   @media screen and (min-width: $breakpoint) {
+   @media screen and (min-width:  $breakpoint-small) {
     @include margin(1rem null null null)
    }
 
    &:first-of-type {
      @include margin(0 null null null);
 
-     @media screen and (min-width: $breakpoint) {
+     @media screen and (min-width: $breakpoint-small) {
        @include margin(1rem null null null)
      }
    }

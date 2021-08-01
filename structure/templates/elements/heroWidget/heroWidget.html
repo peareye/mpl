@@ -1,12 +1,12 @@
 {# Hero Element #}
 
 <div class="hero">
-  
-  {% if getActiveMenus(9) %}
-  <div class="menuWidget">
+ {% if getActiveMenus(9) %}
+   <div class="menuWidget">  
     {{ include("includes/_menuWidget.html") }}
   </div>
   {% endif %}
+ 
 
   <div class="hero__image">
     {% if element.media.filename %}

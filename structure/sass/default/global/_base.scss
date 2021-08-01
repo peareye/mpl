@@ -109,7 +109,7 @@ section {
   width: 100%;
 
   &:first-of-type {
-    @include padding(2rem null 4rem null);
+    @include padding(2rem null 1rem);
   }
 
   &:nth-child(even) {

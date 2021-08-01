@@ -7,7 +7,7 @@
         {
             "name": "Content",
             "key": "contentBlock",
-            "description": "Content blocks for default page layout",
+            "description": "Content blocks for default pages.",
             "elementTypeOptions": [
                 "image/image", "text/text", "contact/contact", "shop/shop"
               ]

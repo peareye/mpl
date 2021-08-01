@@ -6,7 +6,7 @@
   position: relative;
   font-size : .9rem;
 
-  @media screen and (min-width: $breakpoint){
+  @media screen and (min-width:  $breakpoint-small){
     text-align: left;
   }
 }
@@ -20,7 +20,7 @@
 
   position: relative;
 
-  @media screen and (min-width: $breakpoint) {
+  @media screen and (min-width:  $breakpoint-small) {
     grid-template-columns: 1fr 1fr auto auto;
   }
   h5 {
