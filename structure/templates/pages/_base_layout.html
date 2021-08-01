@@ -22,20 +22,20 @@
     {% block hero %}
     {% endblock hero %}
 
-  
+
         <main>
             {% block body %}
             {% endblock %}
         </main>
             {% block sidebar %}
             {% endblock %}
-       
- 
+
+
 
     {{ include("includes/_footer.html") }}
 
     <script nonce="{{ site.environment.cspNonce }}" src="{{ baseUrl() }}/admin/js/dist/front.js?v={{ site.environment.assetVersion }}"></script>
-    <script nonce="{{ site.environment.cspNonce }}" src="{{ baseUrl() }}/assets/js/custom.js"></script>
+    <script nonce="{{ site.environment.cspNonce }}" src="{{ baseUrl() }}/assets/js/custom.js?v={{ site.environment.assetVersion }}"></script>
     <script nonce="{{ site.environment.cspNonce }}" src="{{ baseUrl() }}/assets/fancybox/fancybox/fancybox.umd.js"></script>
 
     {% if site.environment.production %}
