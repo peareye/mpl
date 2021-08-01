@@ -389,7 +389,9 @@ figure figcaption {
   font-weight: 300;
   background: white;
   min-width: 33%;
+  height: 100vh;
   min-height: 100vh;
+  overflow: scroll;
   box-shadow: 2px 0 12px 5px rgba(35, 31, 32, 0.15);
   position: absolute;
   top: 0;
@@ -420,21 +422,21 @@ figure figcaption {
   transform: translateX(0);
 }
 
-.headerScroll {
+.jsHeaderScroll {
   padding-top: 0;
   padding-bottom: 0;
   height: 60px;
   width: 100%;
 }
-.headerScroll .logo {
+.jsHeaderScroll .logo {
   text-align: center;
   padding: 0.5rem 4rem;
 }
-.headerScroll .logo img {
+.jsHeaderScroll .logo img {
   height: calc(60px - 1rem);
   display: inline-block;
 }
-.headerScroll .headerSVG {
+.jsHeaderScroll .headerSVG {
   height: calc(60px - 5px);
   bottom: -3px;
 }

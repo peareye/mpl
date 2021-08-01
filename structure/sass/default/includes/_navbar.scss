@@ -25,7 +25,9 @@
   font-weight: 300;
   background: $bg-light;
   min-width: 33%;
+  height: 100vh;
   min-height: 100vh;
+  overflow: scroll;
 
   box-shadow: 2px 0 12px 5px rgba($bg-dark, .15);
 
@@ -63,7 +65,7 @@
   transform: translateX(0);
 }
 // On Scroll  header/navbar/svg
-.headerScroll {
+.jsHeaderScroll {
   @include padding(0 null);
   
   height: $nav-height;
