@@ -29,6 +29,12 @@ class MPLTwig extends AbstractExtension implements GlobalsInterface
     protected $container;
 
     /**
+     * Cache
+     * @var array
+     */
+    protected $cache = [];
+
+    /**
      * Constructor
      *
      * @param object Psr\Container\ContainerInterface
@@ -70,6 +76,11 @@ class MPLTwig extends AbstractExtension implements GlobalsInterface
      */
     public function getActiveMenus(int $collectionId): ?array
     {
+        // Check cache first
+        if (isset($this->cache['activeMenus'])) {
+            return $this->cache['activeMenus'];
+        }
+
         // Get dependencies
         $pageMapper = ($this->container->dataMapper)('MPLPageMapper', 'PitonCMS\\Models\\');
         $dataStoreMapper = ($this->container->dataMapper)('MPLDataStoreMapper', 'PitonCMS\\Models\\');
@@ -80,7 +91,7 @@ class MPLTwig extends AbstractExtension implements GlobalsInterface
 
         // If no menus were found then return null
         if (!$menus) {
-            return null;
+            return $this->cache['activeMenus'] = null;
         }
 
         // Get all elements and data fields
@@ -102,6 +113,6 @@ class MPLTwig extends AbstractExtension implements GlobalsInterface
             $menu->setBlockElements($elements);
         }
 
-        return $menus;
+        return $this->cache['activeMenus'] = $menus;
     }
 }
