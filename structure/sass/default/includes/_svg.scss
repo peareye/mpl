@@ -1,27 +1,46 @@
 .inlineSVG {
   display: inline;
-  width: auto;
+  width  : auto;
 }
 
 .headerSVG {
   position: absolute;
-  right: 0;
-  bottom: -5px;
-  height: clamp(4em, 20vh, 6em);
+  right   : 0;
+  bottom  : -5px;
+  height  : clamp(4em, 20vh, 6em);
 }
 
 .navbarSVG {
   position: absolute;
   right   : .5em;
   bottom  : 0;
-  width: clamp(2rem, 10vw, 5rem);
+  width   : clamp(2rem, 10vw, 5rem);
 }
 
 .footerSVG {
   position: fixed;
-  left: 0;
-  bottom: 0;
-  height: clamp(9rem, 10vh, 20rem);
-  z-index: 1000;
+  left    : 0;
+  bottom  : 0;
+  height  : clamp(9rem, 10vh, 20rem);
+  z-index : 1000;
+
+}
+
+.bodySVG {
+  display: none;
+
+  @media screen and (min-width: $breakpoint-small) {
+ 
+    @include padding(1rem);
+    width    : 100%;
+    height   : auto;
+    position : absolute;
+    top      : 50%;
+    left     : 50%;
+    transform: translate(-50%, -50%);
+    z-index  : 1;
+    opacity  : 7%;
+    display: inline-block;
+  }
 
 }

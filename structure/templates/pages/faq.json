@@ -1,0 +1,17 @@
+{
+  "templateName": "FAQ Page",
+  "templateDescription": "Page with hero image and content blocks.",
+  "showSubTitle": false,
+  "showFeaturedImage": true,
+  "templateType": "page",
+  "blocks": [
+    {
+      "name": "FAQs",
+      "key": "faqBlock",
+      "description": "FAQs",
+      "elementTypeOptions": [
+        "faq/faq"
+      ]
+    }
+  ]
+}

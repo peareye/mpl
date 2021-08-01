@@ -12,35 +12,36 @@ $clr-grey-medium: rgb(204, 204, 204);
 $clr-grey-dark  : hsl(0, 0%, 30%);
 
 
-$clr-primary: $clr-blue-light;
+$clr-primary      : $clr-blue-light;
 $clr-primary-light: lighten($clr-primary, 20%);
-$clr-primary-dark: darken($clr-primary, 20%);
+$clr-primary-dark : darken($clr-primary, 20%);
 
 $clr-accent : $clr-red;
 
 $bg-light  : $clr-white;
 $bg-dark   : $clr-black;
-$bg-grey: $clr-grey-medium;
+$bg-grey   : $clr-grey-medium;
 $text-light: $clr-white;
 $text-dark : $clr-black;
-$ls: 2px;
-$bs: 2px 2px 15px rgba($bg-dark, .15);
+$ls        : 2px;
+$bs        : 2px 2px 15px rgba($bg-dark, .15);
 
-$br: 4px; // border-radius
+$br        : 4px; // border-radius
 $nav-height: 60px; //navigation height
 
-  // Layout Variables
-  $max-container-width: 1200px;
+// Layout Variables
+$max-container-width: 1200px;
 
-  // Media Query Breakpoints
-  $breakpoint: 768px;
+// Media Query Breakpoints
+$breakpoint-small: 768px;
+$breakpoint-wide : 1100px;
 
-  $fw-l: 300;
-  $fw-n: 400;
-  $fw-m: 600;
-  $fw-b: 700;
+$fw-l: 300;
+$fw-n: 400;
+$fw-m: 600;
+$fw-b: 700;
 
-  $ff-serif: 'PT Serif',
-  serif;
-  $ff-sans: 'Open Sans',
-  sans-serif;
+$ff-serif: 'PT Serif',
+serif;
+$ff-sans: 'Open Sans',
+sans-serif;

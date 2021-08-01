@@ -1,20 +1,28 @@
 .imageElement {
-  @include padding(2rem null null);
-  
+  @include padding(2rem null);
+
   text-align: left;
   display   : flex;
   flex-wrap : wrap;
   --margin  : 1rem;
   --modifier: calc(54rem - 100%);
   margin    : calc(var(--margin) * -1);
- 
+
 
   >* {
     flex-grow : 1;
     flex-basis: calc(var(--modifier) * 999);
     margin    : var(--margin);
   }
-  p{
+
+  &__content {
+    position: relative;
+    z-index : 2;
+
+  }
+
+  p {
     @include margin(0 null null null);
+    font-size: 1.1rem;
   }
 }

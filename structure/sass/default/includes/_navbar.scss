@@ -1,12 +1,15 @@
-
-
-header {
+.topHeader {
   @include padding(1em null);
+
   background: $clr-primary-dark;
   height: calc(#{$nav-height} + 4em);
   width: 100%;
 
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+
+  transition: all 125ms ease-in-out;
 
   .logo {
     text-align: center;
@@ -58,4 +61,38 @@ header {
 
 .toggle:checked~.navbar {
   transform: translateX(0);
+}
+// On Scroll  header/navbar/svg
+.headerScroll {
+  @include padding(0 null);
+  
+  height: $nav-height;
+  width: 100%;
+
+  .logo {
+    text-align: center;
+    @include padding(.5rem 4rem);
+    img {
+      height: calc(#{$nav-height} - 1rem);
+      display: inline-block;   
+  }
+ 
+  }
+  .headerSVG {
+    height: calc(#{$nav-height} - 5px);
+    bottom: -3px;
+  }
+
+}
+.toggle-label {
+  height: $nav-height;
+  @include margin(0);
+
+}
+
+.headerSVG {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  height: calc(#{$nav-height} - 0rem);
 }

@@ -42,43 +42,27 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  min-height: 100vh;
 }
 
 body {
+  height: auto;
+  min-height: 100vh;
   background: white;
   color: #231f20;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
   line-height: 1.6;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #231f20;
   display: flex;
   flex-flow: column nowrap;
   overflow-x: hidden;
 }
 
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #231f20;
-}
-
 p {
-  margin-bottom: 1.2em;
   margin-top: 1rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "franchise_freebold", sans-serif;
-  color: #231f20;
-  font-weight: inherit;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
 }
 
 h1,
@@ -146,7 +130,7 @@ section {
 }
 section:first-of-type {
   padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 1rem;
 }
 section:nth-child(even) {
   background: #f0f0f0;
@@ -335,20 +319,68 @@ figure figcaption {
   top: 0px;
 }
 
-header {
+.inlineSVG {
+  display: inline;
+  width: auto;
+}
+
+.headerSVG {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  height: clamp(4em, 20vh, 6em);
+}
+
+.navbarSVG {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0;
+  width: clamp(2rem, 10vw, 5rem);
+}
+
+.footerSVG {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: clamp(9rem, 10vh, 20rem);
+  z-index: 1000;
+}
+
+.bodySVG {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .bodySVG {
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 7%;
+    display: inline-block;
+  }
+}
+
+.topHeader {
   padding-top: 1em;
   padding-bottom: 1em;
   background: #40a5a0;
   height: calc(60px + 4em);
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  transition: all 125ms ease-in-out;
 }
-header .logo {
+.topHeader .logo {
   text-align: center;
   padding-right: 4rem;
   padding-left: 4rem;
 }
-header img {
+.topHeader img {
   height: calc(60px + 2em);
   display: inline-block;
 }
@@ -388,31 +420,35 @@ header img {
   transform: translateX(0);
 }
 
-.inlineSVG {
-  display: inline;
-  width: auto;
+.headerScroll {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 60px;
+  width: 100%;
+}
+.headerScroll .logo {
+  text-align: center;
+  padding: 0.5rem 4rem;
+}
+.headerScroll .logo img {
+  height: calc(60px - 1rem);
+  display: inline-block;
+}
+.headerScroll .headerSVG {
+  height: calc(60px - 5px);
+  bottom: -3px;
+}
+
+.toggle-label {
+  height: 60px;
+  margin: 0;
 }
 
 .headerSVG {
   position: absolute;
   right: 0;
   bottom: -5px;
-  height: clamp(4em, 20vh, 6em);
-}
-
-.navbarSVG {
-  position: absolute;
-  right: 0.5em;
-  bottom: 0;
-  width: clamp(2rem, 10vw, 5rem);
-}
-
-.footerSVG {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: clamp(9rem, 10vh, 20rem);
-  z-index: 1000;
+  height: calc(60px - 0rem);
 }
 
 .footer {
@@ -472,21 +508,44 @@ header img {
 }
 
 .hero {
-  --hero-height: 80vh;
-  height: min(var(--hero-height), 1080px);
+  height: 100vh;
+  width: 100%;
   position: relative;
-  z-index: 100;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 65vh;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .hero {
+    height: 50vh;
+  }
 }
 .hero__image {
-  width: 100vw;
-  height: min(var(--hero-height), 1080px);
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 .hero__image img {
-  width: 100vw;
-  height: min(var(--hero-height), 1080px);
+  height: 100%;
   object-fit: cover;
-  z-index: 100;
+}
+.hero__content {
+  padding: 1rem;
+  width: 100%;
+  max-width: 30ch;
+  text-align: center;
+  color: white;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 102;
+}
+.hero__content-title {
+  color: white;
 }
 .hero__overlay {
   position: absolute;
@@ -496,26 +555,9 @@ header img {
   bottom: 0;
   z-index: 101;
 }
-.hero__content {
-  text-align: center;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 40ch;
-  font-size: 1.3rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 102;
-  transform: translate(-50%, -50%);
-}
-.hero__content-title {
-  color: white;
-}
 
 .menuWidget {
-  padding: 1rem;
+  padding: 1rem 2rem;
   width: 100%;
   background: white;
   text-align: center;
@@ -524,37 +566,49 @@ header img {
   top: 0;
   z-index: 102;
   display: flex;
-  gap: 2rem;
+  gap: 10px;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  align-content: center;
 }
 @media screen and (min-width: 768px) {
   .menuWidget {
-    width: 25vw;
-    bottom: 0;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
+    padding: 0.5rem;
+    width: 25%;
+    flex-flow: column wrap;
   }
 }
-.menuWidget .actionBlock {
+@media screen and (min-width: 1100px) {
+  .menuWidget {
+    width: 20%;
+    flex-flow: column wrap;
+  }
+}
+.menuWidget__item {
+  padding: 1rem;
+  width: 100%;
+  border: dashed 3px #e23d18;
+  border-radius: 4px;
+}
+.menuWidget__item .actionBlock {
   margin-top: 0.75rem;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
 }
-.menuWidget .actionBlock i {
+.menuWidget__item .actionBlock i {
   font-size: 0.75rem;
 }
 
 @media screen and (min-width: 768px) {
   .menuWidget + .hero__image {
-    --hero-height: 65vh;
-    width: 75vw;
+    width: 75%;
   }
-  .menuWidget + .hero__image img {
-    width: 75vw;
-    object-fit: cover;
+}
+@media screen and (min-width: 1100px) {
+  .menuWidget + .hero__image {
+    width: 80%;
   }
 }
 
@@ -672,6 +726,7 @@ textarea:focus {
 
 .imageElement {
   padding-top: 2rem;
+  padding-bottom: 2rem;
   text-align: left;
   display: flex;
   flex-wrap: wrap;
@@ -684,8 +739,13 @@ textarea:focus {
   flex-basis: calc(var(--modifier) * 999);
   margin: var(--margin);
 }
+.imageElement__content {
+  position: relative;
+  z-index: 2;
+}
 .imageElement p {
   margin-top: 0;
+  font-size: 1.1rem;
 }
 
 .reviewGrid {
