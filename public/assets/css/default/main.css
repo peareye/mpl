@@ -253,6 +253,7 @@ figure figcaption {
   position: absolute;
   top: -999px !important;
   left: -9999px !important;
+  display: none;
 }
 
 .toggle-label {
@@ -292,7 +293,12 @@ figure figcaption {
 }
 
 .toggle:checked ~ .toggle-label {
-  left: 33%;
+  left: 65%;
+}
+@media screen and (min-width: 768px) {
+  .toggle:checked ~ .toggle-label {
+    left: 25%;
+  }
 }
 
 .toggle:checked ~ .toggle-label span {
@@ -361,7 +367,7 @@ figure figcaption {
   width: 100%;
   position: sticky;
   top: 0;
-  z-index: 10000;
+  z-index: 1000;
   transition: all 125ms ease-in-out;
 }
 .topHeader .logo {
@@ -377,7 +383,7 @@ figure figcaption {
 .navbar {
   font-weight: 300;
   background: white;
-  min-width: 33%;
+  min-width: 25%;
   height: 100vh;
   min-height: 100vh;
   overflow: scroll;

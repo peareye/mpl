@@ -3,6 +3,7 @@
   position: absolute;
   top     : -999px !important;
   left    : -9999px !important;
+  display: none;
 }
 
 // Toggle Hamburger
@@ -55,10 +56,10 @@
 
 // Nav Toggle Animation
 .toggle:checked~.toggle-label {
-  // border-radius: 50%;
-  // filter: drop-shadow(0 2px 2px rgba($bg-dark, .15));
-  // background: rgba($clr-primary,.25);
-  left: 33%;
+  left:65%;
+  @media screen and (min-width: $breakpoint-small){
+    left: 25%;
+  }
 
 }
 
