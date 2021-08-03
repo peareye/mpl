@@ -8,25 +8,20 @@
     <figure class="image">
       {{ getMediaSrcSet(page.media.filename, page.media.caption, {'sizes': '(min-width: 1020px) 926px, 93.43vw'}) }}
     </figure>
-
+  </div>
     <div class="collectionDetail__content">
       
-      <h1 class="element__title">{{page.title }}</h1>
-      
+      <h1 class="element__title">{{page.title }}</h1> 
+     
       {{ getBlockElementsHtml(page.blocks.contentBlock) }}
 
-     
-    
     </div>
+
     <div class="actionBlock">
       <a href="{{ page.settings.url }}" target="_blank">Visit Site <i class="fas fa-external-link-alt"></i></a>
       
       <a href="/friends-of-mypie" class="btn">Return to Friends</a>
     </div>
-
-   
-
-  </div>
 
 </section>
 

@@ -106,22 +106,13 @@ a {
 
 section {
   @include padding(2rem null 4rem);
-  width: 100%;
 
   &:first-of-type {
-    @include padding(2rem null 1rem);
+    @include padding(2rem null 5rem null);
   }
 
   &:nth-child(even) {
     background: $clr-grey-light;
-
-    &:last-of-type {
-      @include margin(null null 0 null);
-    }
-  }
-
-  &:last-of-type {
-    @include margin(null null 2rem null);
   }
 }
 
@@ -131,9 +122,8 @@ section {
 
 .container,
 .container-wide {
-  @include margin(auto);
-  width: 100%;
 
+  width: 100%;
   display              : grid;
   grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1200px) minmax(2rem, 1fr);
 
@@ -143,7 +133,7 @@ section {
 }
 
 .container {
-  grid-template-columns: minmax(2rem, 1fr) minmax(auto, 45ch) minmax(2rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(auto, 40rem) minmax(2rem, 1fr);
 }
 
 .text-required {

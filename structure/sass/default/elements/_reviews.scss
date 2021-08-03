@@ -5,22 +5,29 @@
 
   display           : flex;
   flex-flow         : row wrap;
-  // text-align: center;
   justify-content: center;
+  @media screen and (min-width: $breakpoint-small){
+     gap: 3rem;
+  }
 
   .review {
-    @include padding(null 3rem 2rem);
+    // @include padding(null null 2rem);
     text-align: center;
 
     flex      : 1;
     flex-basis: 350px;
     max-width : 350px;
 
+    @media screen and (min-width: $breakpoint-small){
+     
+    }
+
     &__content {
       font-weight: $fw-l;
     }
 
     &__author {
+      @include margin(1rem null null null);
       font-weight   : $fw-b;
       text-transform: uppercase;
       color         : $clr-green;

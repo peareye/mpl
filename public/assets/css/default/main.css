@@ -126,20 +126,13 @@ a:hover {
 section {
   padding-top: 2rem;
   padding-bottom: 4rem;
-  width: 100%;
 }
 section:first-of-type {
   padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 5rem;
 }
 section:nth-child(even) {
   background: #f0f0f0;
-}
-section:nth-child(even):last-of-type {
-  margin-bottom: 0;
-}
-section:last-of-type {
-  margin-bottom: 2rem;
 }
 
 .heroWidget + section {
@@ -148,7 +141,6 @@ section:last-of-type {
 
 .container,
 .container-wide {
-  margin: auto;
   width: 100%;
   display: grid;
   grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1200px) minmax(2rem, 1fr);
@@ -159,7 +151,7 @@ section:last-of-type {
 }
 
 .container {
-  grid-template-columns: minmax(2rem, 1fr) minmax(auto, 45ch) minmax(2rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) minmax(auto, 40rem) minmax(2rem, 1fr);
 }
 
 .text-required {
@@ -267,6 +259,7 @@ figure figcaption {
   height: 3.5rem;
   width: 4rem;
   cursor: pointer;
+  height: 100% !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,9 +292,6 @@ figure figcaption {
 }
 
 .toggle:checked ~ .toggle-label {
-  border-radius: 50%;
-  filter: drop-shadow(0 2px 2px rgba(35, 31, 32, 0.15));
-  background: rgba(126, 205, 201, 0.25);
   left: 33%;
 }
 
@@ -347,21 +337,20 @@ figure figcaption {
 }
 
 .bodySVG {
-  display: none;
+  padding: 1rem;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 7%;
+  display: inline-block;
 }
-@media screen and (min-width: 768px) {
-  .bodySVG {
-    padding: 1rem;
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 7%;
-    display: inline-block;
-  }
+.bodySVG img {
+  height: 100%;
 }
 
 .topHeader {
@@ -616,10 +605,12 @@ figure figcaption {
 
 #friendsCards .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
   list-style: none;
+}
+#friendsCards .cards a {
+  color: #231f20;
 }
 #friendsCards .card {
   height: 100%;
@@ -629,11 +620,16 @@ figure figcaption {
   box-shadow: 2px 2px 15px rgba(35, 31, 32, 0.15);
   display: flex;
   flex-flow: column nowrap;
+  gap: 3rem;
+  transition: all 125ms ease-in;
 }
 #friendsCards .card__image {
+  padding: 1rem 0.5rem;
+  height: 250px;
   max-height: 250px;
   overflow: hidden;
-  border: solid 2px #cccccc;
+  display: flex;
+  align-items: flex-start;
 }
 #friendsCards .card__image img {
   object-fit: contain;
@@ -642,23 +638,29 @@ figure figcaption {
   margin-top: auto;
   padding-top: 2rem;
 }
-#friendsCards .card__title {
-  padding-top: 2rem;
+#friendsCards .card__content {
+  margin-top: auto;
+}
+#friendsCards .card:hover {
+  transform: scale(1.02);
 }
 
+#friendsDetail .image {
+  padding: 1rem 0.5rem;
+  margin-bottom: 2rem;
+  border: solid #cccccc 5px;
+  max-width: 100%;
+}
+#friendsDetail .image img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
 #friendsDetail .actionBlock {
   padding-top: 2rem;
   display: flex;
   justify-content: space-around;
 }
-#friendsDetail figure {
-  background: #cccccc;
-  padding: 2rem 0;
-}
-#friendsDetail .element__title {
-  margin-top: 2rem;
-}
-
 .contact-form {
   margin-top: 1rem;
   display: grid;
@@ -756,10 +758,12 @@ textarea:focus {
   flex-flow: row wrap;
   justify-content: center;
 }
+@media screen and (min-width: 768px) {
+  .reviewGrid {
+    gap: 3rem;
+  }
+}
 .reviewGrid .review {
-  padding-right: 3rem;
-  padding-bottom: 2rem;
-  padding-left: 3rem;
   text-align: center;
   flex: 1;
   flex-basis: 350px;
@@ -769,6 +773,7 @@ textarea:focus {
   font-weight: 300;
 }
 .reviewGrid .review__author {
+  margin-top: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #0d773d;
