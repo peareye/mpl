@@ -7,7 +7,7 @@
 
   position: sticky;
   top: 0;
-  z-index: 10000;
+  z-index: 1000;
 
   transition: all 125ms ease-in-out;
 
@@ -24,7 +24,7 @@
 .navbar {
   font-weight: 300;
   background: $bg-light;
-  min-width: 33%;
+  min-width: 25%;
   height: 100vh;
   min-height: 100vh;
   overflow: scroll;

@@ -2,11 +2,13 @@
 #friendsCards {
   .cards {
     display              : grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows       : 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
-    gap       : 1rem;
+    gap       : 1.5rem;
     list-style: none;
+    a {
+      color: $text-dark;
+    }
   }
 
   .card {
@@ -18,15 +20,23 @@
 
     display  : flex;
     flex-flow: column nowrap;
+    gap      : 3rem;
+
+    transition: all 125ms ease-in;
 
 
     &__image {
 
+      @include padding(1rem .5rem);
+
+      height    : 250px;
       max-height: 250px;
       overflow  : hidden;
-  
-      border    : solid 2px $bg-grey;
-      img{
+
+      display    : flex;
+      align-items: flex-start;
+
+      img {
         object-fit: contain;
       }
     }
@@ -35,23 +45,49 @@
       @include margin(auto null null null);
       @include padding(2rem null null null);
     }
+
     &__title {
-      @include padding(2rem null null null);
+      // @include padding(2rem null null null);
       // @include margin(auto null null null);
+
+    }
+    &__content {
+  
+      @include margin(auto null null null);
+    }
+
+    &:hover {
+      transform: scale(1.02);
     }
   }
 }
-#friendsDetail{
+
+#friendsDetail {
+  .image {
+    @include padding(1rem .5rem);
+    @include margin(null null 2rem null);
+    border: solid $bg-grey 5px;
+    max-width: 100%;
+
+    img {
+      width  : 100%;
+      display: block;
+      object-fit: contain;
+    }
+  }
   .actionBlock {
     @include padding(2rem null null);
-    display: flex;
+    display        : flex;
     justify-content: space-around;
   }
-  figure {
-    background: $bg-grey;
-    @include padding(2rem 0);
-  }
+
+ 
+
   .element__title {
-    @include margin(2rem null null null);
+    // @include margin(2rem 0 0);
+  }
+
+  h2 {
+    // display: none;
   }
 }

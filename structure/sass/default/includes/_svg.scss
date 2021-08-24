@@ -27,20 +27,20 @@
 }
 
 .bodySVG {
-  display: none;
-
-  @media screen and (min-width: $breakpoint-small) {
- 
-    @include padding(1rem);
-    width    : 100%;
-    height   : auto;
+      @include padding(1rem);
+    width    : auto;
+    height   : 100%;
     position : absolute;
-    top      : 50%;
-    left     : 50%;
-    transform: translate(-50%, -50%);
+    top      : 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+ 
     z-index  : 1;
     opacity  : 7%;
     display: inline-block;
-  }
-
+   
+    img{
+      height: 100%;
+    }
 }
